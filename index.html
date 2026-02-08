@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaptureNInvoice - Show Your Work, Get Paid Faster</title>
+    <meta name="description" content="Attach before/after photos to your invoices. Eliminate customer follow-ups and get paid faster. Built for service professionals.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CaptureNInvoice - Show Your Work, Get Paid Faster">
+    <meta property="og:description" content="Attach before/after photos to your invoices. Eliminate customer follow-ups and get paid faster.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            color: #1A1A2E;
+            background: #FFFFFF;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========== HEADER / NAV ========== */
+        .site-header {
+            padding: 20px 0;
+            background: linear-gradient(135deg, #004E89 0%, #002B4F 100%);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #FFFFFF;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #FF6B35;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #FFD23F;
+            color: #1A1A2E;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            background: linear-gradient(135deg, #004E89 0%, #002B4F 100%);
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 2.6rem;
+            color: #FFFFFF;
+            line-height: 1.12;
+            margin-bottom: 16px;
+        }
+
+        .hero-text h1 .highlight {
+            color: #FF6B35;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 28px;
+            max-width: 420px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: #FF6B35;
+            color: #FFFFFF;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            text-decoration: none;
+        }
+
+        .hero-cta:hover {
+            background: #E55A28;
+        }
+
+        .hero-cta:active {
+            transform: scale(0.98);
+        }
+
+        .hero-social-proof {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-social-proof .counter {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #FFD23F;
+        }
+
+        .hero-social-proof .counter-label {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* ========== PHONE MOCKUP ========== */
+        .phone-mockup {
+            width: 280px;
+            margin: 0 auto;
+            background: #1A1A2E;
+            border-radius: 36px;
+            padding: 12px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        .phone-notch {
+            width: 120px;
+            height: 28px;
+            background: #1A1A2E;
+            border-radius: 0 0 16px 16px;
+            margin: 0 auto;
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .phone-screen {
+            background: #FFFFFF;
+            border-radius: 26px;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .phone-status-bar {
+            background: #004E89;
+            padding: 14px 20px 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: rgba(255,255,255,0.9);
+            font-weight: 500;
+        }
+
+        .phone-app-header {
+            background: #004E89;
+            padding: 8px 20px 14px;
+            color: #FFFFFF;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .phone-invoice {
+            padding: 16px;
+        }
+
+        .phone-invoice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .phone-invoice-client {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #1A1A2E;
+        }
+
+        .phone-invoice-amount {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: #004E89;
+        }
+
+        .phone-invoice-status {
+            display: inline-block;
+            background: #E8F5E9;
+            color: #2E7D32;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 8px;
+            margin-bottom: 14px;
+        }
+
+        .phone-invoice-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .phone-photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+
+        .phone-photo {
+            border-radius: 8px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .phone-photo.before {
+            background: linear-gradient(135deg, #C0C0C0, #9E9E9E);
+        }
+
+        .phone-photo.after {
+            background: linear-gradient(135deg, #66BB6A, #43A047);
+        }
+
+        .phone-invoice-details {
+            border-top: 1px solid #F0F0F0;
+            padding-top: 12px;
+        }
+
+        .phone-invoice-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            padding: 4px 0;
+            color: #555;
+        }
+
+        .phone-invoice-row.total {
+            font-weight: 700;
+            color: #1A1A2E;
+            border-top: 1px solid #F0F0F0;
+            padding-top: 8px;
+            margin-top: 4px;
+        }
+
+        /* ========== PROBLEM SECTION ========== */
+        .problem-section {
+            padding: 80px 0;
+            background: #F8F9FB;
+        }
+
+        .problem-section .container {
+            max-width: 640px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+
+        .section-label.orange {
+            background: #FFF0EB;
+            color: #FF6B35;
+        }
+
+        .section-label.green {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .section-label.blue {
+            background: #E3F2FD;
+            color: #004E89;
+        }
+
+        /* ========== CHAT MOCKUP ========== */
+        .chat-mockup {
+            max-width: 420px;
+            margin: 0 auto 32px;
+        }
+
+        .chat-bubble {
+            padding: 10px 16px;
+            border-radius: 18px;
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+            max-width: 80%;
+            line-height: 1.45;
+        }
+
+        .chat-bubble.received {
+            background: #E9ECEF;
+            color: #1A1A2E;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+
+        .chat-bubble.sent {
+            background: #007AFF;
+            color: #FFFFFF;
+            border-bottom-right-radius: 4px;
+            margin-left: auto;
+        }
+
+        .chat-mockup {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-typing {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: #007AFF;
+            border-radius: 18px;
+            border-bottom-right-radius: 4px;
+            margin-left: auto;
+            max-width: 64px;
+        }
+
+        .chat-typing span {
+            width: 7px;
+            height: 7px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
+        .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+            30% { opacity: 1; transform: translateY(-4px); }
+        }
+
+        .problem-punchline {
+            text-align: center;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #1A1A2E;
+            margin-top: 8px;
+        }
+
+        .problem-punchline .highlight {
+            color: #FF6B35;
+        }
+
+        /* ========== FEATURES SECTION ========== */
+        .features-section {
+            padding: 80px 0;
+        }
+
+        .features-section .section-heading {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: #1A1A2E;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .features-section .section-sub {
+            text-align: center;
+            color: #777;
+            font-size: 1.05rem;
+            margin-bottom: 48px;
+        }
+
+        /* Top 3 featured cards */
+        .feature-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: #FFFFFF;
+            border: 1px solid #EAECF0;
+            border-radius: 12px;
+            padding: 24px;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+
+        .feature-card-icon {
+            width: 44px;
+            height: 44px;
+            background: #FFF0EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .feature-card-icon svg,
+        .feature-card-icon i {
+            color: #FF6B35;
+            width: 20px;
+            height: 20px;
+        }
+
+        .feature-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1A1A2E;
+            margin-bottom: 6px;
+        }
+
+        .feature-card > p {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        /* Feature card mini mockups */
+        .mini-mockup {
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Photo invoice mockup */
+        .mockup-invoice {
+            background: #F8F9FB;
+            border: 1px solid #EAECF0;
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .mockup-invoice-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .mockup-invoice-top .client {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #1A1A2E;
+        }
+
+        .mockup-invoice-top .amount {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #004E89;
+        }
+
+        .mockup-photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+        }
+
+        .mockup-photo-grid .photo {
+            height: 48px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .mockup-photo-grid .photo.before {
+            background: linear-gradient(135deg, #BDBDBD, #9E9E9E);
+        }
+
+        .mockup-photo-grid .photo.after {
+            background: linear-gradient(135deg, #66BB6A, #43A047);
+        }
+
+        /* SMS mockup */
+        .mockup-sms {
+            background: #E8F5E9;
+            border-radius: 16px;
+            padding: 14px 16px;
+            position: relative;
+        }
+
+        .mockup-sms::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 20px;
+            width: 12px;
+            height: 12px;
+            background: #E8F5E9;
+            transform: rotate(45deg);
+        }
+
+        .mockup-sms p {
+            font-size: 0.78rem;
+            color: #1A1A2E;
+            line-height: 1.5;
+        }
+
+        .mockup-sms .link {
+            color: #007AFF;
+            text-decoration: underline;
+        }
+
+        /* Notification mockup */
+        .mockup-notification {
+            background: #FFFFFF;
+            border: 1px solid #EAECF0;
+            border-radius: 12px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .mockup-notif-icon {
+            width: 36px;
+            height: 36px;
+            background: #E8F5E9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: #2E7D32;
+            font-size: 1rem;
+        }
+
+        .mockup-notif-text {
+            font-size: 0.78rem;
+            color: #1A1A2E;
+            line-height: 1.45;
+        }
+
+        .mockup-notif-text strong {
+            color: #2E7D32;
+        }
+
+        /* Bottom 3 compact features */
+        .feature-compact-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-compact {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .feature-compact-icon {
+            width: 44px;
+            height: 44px;
+            background: #FFF0EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-compact-icon svg,
+        .feature-compact-icon i {
+            color: #FF6B35;
+            width: 20px;
+            height: 20px;
+        }
+
+        .feature-compact h3 {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 2px;
+        }
+
+        .feature-compact p {
+            font-size: 0.82rem;
+            color: #777;
+            line-height: 1.45;
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials-section {
+            padding: 80px 0;
+            background: #F8F9FB;
+        }
+
+        .testimonials-section .section-heading {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 2rem;
+            color: #1A1A2E;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .testimonial-card {
+            background: #FFFFFF;
+            border-radius: 12px;
+            padding: 28px 24px;
+            border: 1px solid #EAECF0;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-avatar.purple { background: #7C3AED; }
+        .testimonial-avatar.blue { background: #004E89; }
+        .testimonial-avatar.orange { background: #FF6B35; }
+
+        .testimonial-card blockquote {
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: #1A1A2E;
+        }
+
+        .testimonial-role {
+            font-size: 0.78rem;
+            color: #999;
+        }
+
+        /* ========== FORM SECTION ========== */
+        .form-section {
+            padding: 80px 0;
+        }
+
+        .form-section .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        /* Dashboard mockup */
+        .dashboard-mockup {
+            background: #FFFFFF;
+            border: 1px solid #EAECF0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .dash-header {
+            background: #004E89;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dash-header-title {
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .dash-header-avatar {
+            width: 28px;
+            height: 28px;
+            background: #FF6B35;
+            border-radius: 50%;
+        }
+
+        .dash-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: #EAECF0;
+        }
+
+        .dash-stat {
+            background: #FFFFFF;
+            padding: 16px 12px;
+            text-align: center;
+        }
+
+        .dash-stat-number {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #004E89;
+        }
+
+        .dash-stat-label {
+            font-size: 0.7rem;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        .dash-invoices {
+            padding: 16px 20px;
+        }
+
+        .dash-invoices-title {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .dash-invoice-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .dash-invoice-row:last-child {
+            border-bottom: none;
+        }
+
+        .dash-invoice-client {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #1A1A2E;
+        }
+
+        .dash-invoice-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dash-invoice-amount {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #1A1A2E;
+        }
+
+        .dash-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .dash-badge.paid {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+
+        .dash-badge.pending {
+            background: #FFF8E1;
+            color: #F57F17;
+        }
+
+        /* Form styling */
+        .form-wrapper {
+            background: #F8F9FB;
+            border-radius: 12px;
+            padding: 32px 28px;
+        }
+
+        .form-wrapper h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+            color: #1A1A2E;
+        }
+
+        .form-wrapper .form-sub {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group label .required {
+            color: #FF6B35;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            border: 2px solid #E0E0E0;
+            border-radius: 10px;
+            background: #FFFFFF;
+            color: #1A1A2E;
+            transition: border-color 0.2s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23555' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 36px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #FF6B35;
+        }
+
+        .form-group input::placeholder {
+            color: #AAA;
+        }
+
+        .form-group .error-msg {
+            font-size: 0.78rem;
+            color: #D32F2F;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            background: #FF6B35;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            margin-top: 6px;
+        }
+
+        .submit-btn:hover {
+            background: #E55A28;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .privacy-note {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 12px;
+        }
+
+        /* ========== SUCCESS MESSAGE ========== */
+        .success-message {
+            display: none;
+            background: #E8F5E9;
+            border: 2px solid #2E7D32;
+            border-radius: 12px;
+            padding: 32px 28px;
+            text-align: center;
+        }
+
+        .success-message .check-icon {
+            font-size: 3rem;
+            margin-bottom: 12px;
+            color: #2E7D32;
+        }
+
+        .success-message h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #2E7D32;
+            margin-bottom: 8px;
+        }
+
+        .success-message p {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        /* ========== FOOTER ========== */
+        .site-footer {
+            text-align: center;
+            padding: 32px 0;
+            border-top: 1px solid #EAECF0;
+        }
+
+        .site-footer p {
+            font-size: 0.78rem;
+            color: #AAA;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 40px 0 60px;
+            }
+
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 24px;
+            }
+
+            .hero-social-proof {
+                justify-content: center;
+            }
+
+            .phone-mockup {
+                width: 260px;
+            }
+
+            .feature-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-compact-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-section .container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .features-section .section-heading,
+            .testimonials-section .section-heading {
+                font-size: 1.6rem;
+            }
+
+            .problem-punchline {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 1.7rem;
+            }
+
+            .phone-mockup {
+                width: 240px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">CaptureN<span>Invoice</span></div>
+            <div class="badge">Coming Soon</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-text">
+                <h1>Stop the <span class="highlight">"Did You Finish?"</span> Texts&mdash;Get Paid Faster.</h1>
+                <p>Attach before &amp; after photos to your invoices. Show your work, get paid. Built for service professionals.</p>
+                <a href="#signupForm" class="hero-cta">Join the Waitlist &rarr;</a>
+                <div class="hero-social-proof">
+                    <span class="counter" id="heroCounter">52</span>
+                    <span class="counter-label">service pros already signed up</span>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="phone-mockup">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="phone-status-bar">
+                            <span>9:41</span>
+                            <span>&#9679;&#9679;&#9679;&#9679;</span>
+                        </div>
+                        <div class="phone-app-header">Invoice #1042</div>
+                        <div class="phone-invoice">
+                            <div class="phone-invoice-header">
+                                <span class="phone-invoice-client">Sarah Johnson</span>
+                                <span class="phone-invoice-amount">$175.00</span>
+                            </div>
+                            <span class="phone-invoice-status">Sent</span>
+                            <div class="phone-invoice-label">Photo Proof</div>
+                            <div class="phone-photo-grid">
+                                <div class="phone-photo before">Before</div>
+                                <div class="phone-photo after">After</div>
+                            </div>
+                            <div class="phone-invoice-details">
+                                <div class="phone-invoice-row">
+                                    <span>Deep Clean - Kitchen</span>
+                                    <span>$125.00</span>
+                                </div>
+                                <div class="phone-invoice-row">
+                                    <span>Oven Detail</span>
+                                    <span>$50.00</span>
+                                </div>
+                                <div class="phone-invoice-row total">
+                                    <span>Total</span>
+                                    <span>$175.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container" style="text-align: center;">
+            <div class="section-label orange">The Problem</div>
+            <div class="chat-mockup">
+                <div class="chat-bubble received">Hey, did you finish everything?</div>
+                <div class="chat-bubble sent">Yes all done! &#10003;</div>
+                <div class="chat-bubble received">Can you send me photos?</div>
+                <div class="chat-bubble sent">Sure one sec...</div>
+                <div class="chat-bubble received">I need proof before I pay</div>
+                <div class="chat-typing">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <p class="problem-punchline">Sound familiar? You waste <span class="highlight">5+ hours/week</span> on this.</p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-label blue" style="display: block; text-align: center;">Features</div>
+            <h2 class="section-heading">Everything You Need to Get Paid</h2>
+            <p class="section-sub">No more chasing clients. No more digging through your camera roll.</p>
+
+            <!-- Top 3 feature cards with mockups -->
+            <div class="feature-cards">
+                <!-- Photo Invoices -->
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i data-lucide="camera"></i>
+                    </div>
+                    <h3>Photo Invoices</h3>
+                    <p>Attach before &amp; after photos to every invoice as proof of work.</p>
+                    <div class="mini-mockup">
+                        <div class="mockup-invoice">
+                            <div class="mockup-invoice-top">
+                                <span class="client">Maria's Cleaning</span>
+                                <span class="amount">$175.00</span>
+                            </div>
+                            <div class="mockup-photo-grid">
+                                <div class="photo before">Before</div>
+                                <div class="photo after">After</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Instant Send (SMS) -->
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i data-lucide="message-square"></i>
+                    </div>
+                    <h3>Instant Send (SMS)</h3>
+                    <p>Text invoice links to clients. No email needed.</p>
+                    <div class="mini-mockup">
+                        <div class="mockup-sms">
+                            <p>You have a new invoice from <strong>Maria's Cleaning</strong> &mdash; Tap to view &amp; pay: <span class="link">$175.00</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Notifications -->
+                <div class="feature-card">
+                    <div class="feature-card-icon">
+                        <i data-lucide="bell-ring"></i>
+                    </div>
+                    <h3>Payment Notifications</h3>
+                    <p>Get notified when invoices are viewed and paid.</p>
+                    <div class="mini-mockup">
+                        <div class="mockup-notification">
+                            <div class="mockup-notif-icon">&#10003;</div>
+                            <div class="mockup-notif-text">
+                                <strong>Invoice #1042 paid</strong><br>
+                                $250.00 received
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom 3 compact features -->
+            <div class="feature-compact-row">
+                <div class="feature-compact">
+                    <div class="feature-compact-icon">
+                        <i data-lucide="dollar-sign"></i>
+                    </div>
+                    <div>
+                        <h3>Faster Payments</h3>
+                        <p>Clients pay quicker when they see the work done.</p>
+                    </div>
+                </div>
+                <div class="feature-compact">
+                    <div class="feature-compact-icon">
+                        <i data-lucide="copy"></i>
+                    </div>
+                    <div>
+                        <h3>Duplicate Invoice</h3>
+                        <p>Copy last invoice for repeat jobs in one tap.</p>
+                    </div>
+                </div>
+                <div class="feature-compact">
+                    <div class="feature-compact-icon">
+                        <i data-lucide="banknote"></i>
+                    </div>
+                    <div>
+                        <h3>Paid in Cash</h3>
+                        <p>Easily track cash payments and stay organized.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-heading">Service Pros Love It</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar purple">M.R.</div>
+                    <blockquote>"I used to spend 30 minutes after every job texting photos. This changes everything."</blockquote>
+                    <div class="testimonial-name">Maria R.</div>
+                    <div class="testimonial-role">Cleaning Service</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar blue">J.T.</div>
+                    <blockquote>"My clients pay the same day now. Before it was a week of back and forth."</blockquote>
+                    <div class="testimonial-name">James T.</div>
+                    <div class="testimonial-role">Pressure Washing</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar orange">S.K.</div>
+                    <blockquote>"Finally, an invoice app that gets what service pros actually need."</blockquote>
+                    <div class="testimonial-name">Sam K.</div>
+                    <div class="testimonial-role">Car Detailing</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section with Dashboard Preview -->
+    <section class="form-section" id="signupForm">
+        <div class="container">
+            <!-- Dashboard Mockup -->
+            <div class="dashboard-mockup">
+                <div class="dash-header">
+                    <span class="dash-header-title">Dashboard</span>
+                    <div class="dash-header-avatar"></div>
+                </div>
+                <div class="dash-stats">
+                    <div class="dash-stat">
+                        <div class="dash-stat-number">12</div>
+                        <div class="dash-stat-label">Invoices</div>
+                    </div>
+                    <div class="dash-stat">
+                        <div class="dash-stat-number">$3,240</div>
+                        <div class="dash-stat-label">Earned</div>
+                    </div>
+                    <div class="dash-stat">
+                        <div class="dash-stat-number">98%</div>
+                        <div class="dash-stat-label">Paid</div>
+                    </div>
+                </div>
+                <div class="dash-invoices">
+                    <div class="dash-invoices-title">Recent Invoices</div>
+                    <div class="dash-invoice-row">
+                        <span class="dash-invoice-client">Sarah Johnson</span>
+                        <div class="dash-invoice-right">
+                            <span class="dash-invoice-amount">$175.00</span>
+                            <span class="dash-badge paid">Paid</span>
+                        </div>
+                    </div>
+                    <div class="dash-invoice-row">
+                        <span class="dash-invoice-client">Mike Chen</span>
+                        <div class="dash-invoice-right">
+                            <span class="dash-invoice-amount">$320.00</span>
+                            <span class="dash-badge paid">Paid</span>
+                        </div>
+                    </div>
+                    <div class="dash-invoice-row">
+                        <span class="dash-invoice-client">Lisa Park</span>
+                        <div class="dash-invoice-right">
+                            <span class="dash-invoice-amount">$95.00</span>
+                            <span class="dash-badge pending">Pending</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signup Form -->
+            <div class="form-wrapper" id="formWrapper">
+                <h2>Get Early Access</h2>
+                <p class="form-sub">Be the first to try CaptureNInvoice. It's free.</p>
+                <form id="earlyAccessForm" novalidate>
+                    <div class="form-group">
+                        <label for="email">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        <div class="error-msg" id="emailError">Please enter a valid email address.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="businessType">What type of business? <span class="required">*</span></label>
+                        <select id="businessType" name="businessType" required>
+                            <option value="" disabled selected>Select your business type</option>
+                            <option value="cleaning">Cleaning Service</option>
+                            <option value="pressure-washing">Pressure Washing</option>
+                            <option value="car-detailing">Car Detailing</option>
+                            <option value="handyman">Handyman / Repair</option>
+                            <option value="landscaping">Landscaping / Lawn Care</option>
+                            <option value="contractor">General Contractor</option>
+                            <option value="tutoring">Tutoring / Lessons</option>
+                            <option value="other">Other Service Business</option>
+                        </select>
+                        <div class="error-msg" id="businessError">Please select your business type.</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Your Name <span style="color:#AAA;">(optional)</span></label>
+                        <input type="text" id="name" name="name" placeholder="John Doe">
+                    </div>
+                    <button type="submit" class="submit-btn">Join the Waitlist</button>
+                    <p class="privacy-note">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
+                </form>
+            </div>
+
+            <!-- Success Message (hidden by default) -->
+            <div class="success-message" id="successMessage">
+                <div class="check-icon">&#10003;</div>
+                <h2>You're on the list!</h2>
+                <p>Thanks for signing up. We'll notify you as soon as CaptureNInvoice is ready. You're going to love it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 CaptureNInvoice. Built for service professionals who take pride in their work.</p>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // ========== INITIALIZE LUCIDE ICONS ==========
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // ========== SIGNUP COUNTER ==========
+            const COUNTER_KEY = 'captureninvoice_counter';
+            const SIGNUPS_KEY = 'captureninvoice_signups';
+
+            function getCounter() {
+                const stored = localStorage.getItem(COUNTER_KEY);
+                return stored ? parseInt(stored, 10) : 52;
+            }
+
+            function incrementCounter() {
+                const current = getCounter() + 1;
+                localStorage.setItem(COUNTER_KEY, current);
+                return current;
+            }
+
+            function updateCounterDisplay() {
+                const count = getCounter();
+                document.getElementById('heroCounter').textContent = count;
+            }
+
+            // Initialize counter display
+            updateCounterDisplay();
+
+            // ========== SMOOTH SCROLL ==========
+            document.querySelector('.hero-cta').addEventListener('click', function(e) {
+                e.preventDefault();
+                var target = document.getElementById('signupForm');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+
+            // ========== FORM HANDLING ==========
+            const form = document.getElementById('earlyAccessForm');
+            const formWrapper = document.getElementById('formWrapper');
+            const successMessage = document.getElementById('successMessage');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Clear previous errors
+                document.querySelectorAll('.error-msg').forEach(function(el) {
+                    el.style.display = 'none';
+                });
+
+                const email = document.getElementById('email').value.trim();
+                const businessType = document.getElementById('businessType').value;
+                const name = document.getElementById('name').value.trim();
+
+                let hasError = false;
+
+                // Validate email
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !emailPattern.test(email)) {
+                    document.getElementById('emailError').style.display = 'block';
+                    hasError = true;
+                }
+
+                // Validate business type
+                if (!businessType) {
+                    document.getElementById('businessError').style.display = 'block';
+                    hasError = true;
+                }
+
+                if (hasError) return;
+
+                // Create signup entry
+                var signup = {
+                    email: email,
+                    businessType: businessType,
+                    name: name || '',
+                    timestamp: new Date().toISOString()
+                };
+
+                // Store in localStorage
+                var signups = [];
+                try {
+                    var stored = localStorage.getItem(SIGNUPS_KEY);
+                    if (stored) signups = JSON.parse(stored);
+                } catch (err) {
+                    signups = [];
+                }
+                signups.push(signup);
+                localStorage.setItem(SIGNUPS_KEY, JSON.stringify(signups));
+
+                // Increment and update counter
+                var newCount = incrementCounter();
+                updateCounterDisplay();
+
+                // Show success, hide form
+                formWrapper.style.display = 'none';
+                successMessage.style.display = 'block';
+
+                // Log for debugging
+                console.log('New signup:', signup);
+                console.log('Total signups:', signups.length);
+
+                /* ========== FUTURE INTEGRATIONS ==========
+                 *
+                 * Replace the localStorage code above with one of these:
+                 *
+                 * --- Mailchimp ---
+                 * fetch('https://YOUR_DOMAIN.us1.list-manage.com/subscribe/post-json?u=XXX&id=XXX', {
+                 *   method: 'POST',
+                 *   mode: 'no-cors',
+                 *   headers: { 'Content-Type': 'application/json' },
+                 *   body: JSON.stringify({ EMAIL: email, FNAME: name, BUSINESS: businessType })
+                 * });
+                 *
+                 * --- Google Sheets (via Apps Script webhook) ---
+                 * fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
+                 *   method: 'POST',
+                 *   body: JSON.stringify(signup)
+                 * });
+                 *
+                 * --- Airtable ---
+                 * fetch('https://api.airtable.com/v0/YOUR_BASE/Signups', {
+                 *   method: 'POST',
+                 *   headers: {
+                 *     'Authorization': 'Bearer YOUR_API_KEY',
+                 *     'Content-Type': 'application/json'
+                 *   },
+                 *   body: JSON.stringify({ fields: { Email: email, Name: name, Business: businessType } })
+                 * });
+                 *
+                 * --- Custom Backend ---
+                 * fetch('/api/signups', {
+                 *   method: 'POST',
+                 *   headers: { 'Content-Type': 'application/json' },
+                 *   body: JSON.stringify(signup)
+                 * });
+                 */
+            });
+        })();
+    </script>
+</body>
+</html>
