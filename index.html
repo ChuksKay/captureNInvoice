@@ -1446,24 +1446,16 @@
 
                 if (hasError) return;
 
-                // Create signup entry
-                var signup = {
-                    email: email,
-                    businessType: businessType,
-                    name: name || '',
-                    timestamp: new Date().toISOString()
-                };
-
-                // Store in localStorage
-                var signups = [];
-                try {
-                    var stored = localStorage.getItem(SIGNUPS_KEY);
-                    if (stored) signups = JSON.parse(stored);
-                } catch (err) {
-                    signups = [];
-                }
-                signups.push(signup);
-                localStorage.setItem(SIGNUPS_KEY, JSON.stringify(signups));
+                // POST to Google Sheets webhook
+                fetch('https://script.google.com/macros/s/AKfycbx06lzji_0DSUhPtEf0fThBlaqzkB2AR2354mRV63QWQCCg9y1LzdtDFLZzkSUE3xAO/exec', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        email: email,
+                        business: businessType,
+                        name: name,
+                        timestamp: new Date().toISOString()
+                    })
+                });
 
                 // Increment and update counter
                 var newCount = incrementCounter();
@@ -1472,46 +1464,6 @@
                 // Show success, hide form
                 formWrapper.style.display = 'none';
                 successMessage.style.display = 'block';
-
-                // Log for debugging
-                console.log('New signup:', signup);
-                console.log('Total signups:', signups.length);
-
-                /* ========== FUTURE INTEGRATIONS ==========
-                 *
-                 * Replace the localStorage code above with one of these:
-                 *
-                 * --- Mailchimp ---
-                 * fetch('https://YOUR_DOMAIN.us1.list-manage.com/subscribe/post-json?u=XXX&id=XXX', {
-                 *   method: 'POST',
-                 *   mode: 'no-cors',
-                 *   headers: { 'Content-Type': 'application/json' },
-                 *   body: JSON.stringify({ EMAIL: email, FNAME: name, BUSINESS: businessType })
-                 * });
-                 *
-                 * --- Google Sheets (via Apps Script webhook) ---
-                 * fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
-                 *   method: 'POST',
-                 *   body: JSON.stringify(signup)
-                 * });
-                 *
-                 * --- Airtable ---
-                 * fetch('https://api.airtable.com/v0/YOUR_BASE/Signups', {
-                 *   method: 'POST',
-                 *   headers: {
-                 *     'Authorization': 'Bearer YOUR_API_KEY',
-                 *     'Content-Type': 'application/json'
-                 *   },
-                 *   body: JSON.stringify({ fields: { Email: email, Name: name, Business: businessType } })
-                 * });
-                 *
-                 * --- Custom Backend ---
-                 * fetch('/api/signups', {
-                 *   method: 'POST',
-                 *   headers: { 'Content-Type': 'application/json' },
-                 *   body: JSON.stringify(signup)
-                 * });
-                 */
             });
         })();
     </script>
