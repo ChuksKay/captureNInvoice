@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaptureNInvoice - Show Your Work, Get Paid Faster</title>
-    <meta name="description" content="Attach before/after photos to your invoices. Eliminate customer follow-ups and get paid faster. Built for service professionals.">
+    <meta name="description" content="Attach before/after photos to your invoices. Customers see proof instantly. You get paid faster.">
 
     <!-- Open Graph -->
     <meta property="og:title" content="CaptureNInvoice - Show Your Work, Get Paid Faster">
-    <meta property="og:description" content="Attach before/after photos to your invoices. Eliminate customer follow-ups and get paid faster.">
+    <meta property="og:description" content="Attach before/after photos to your invoices. Customers see proof instantly. You get paid faster.">
     <meta property="og:type" content="website">
 
     <!-- Google Fonts -->
@@ -36,12 +36,12 @@
         }
 
         .container {
-            max-width: 960px;
+            max-width: 1060px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
-        /* ========== HEADER / NAV ========== */
+        /* ========== HEADER ========== */
         .site-header {
             padding: 20px 0;
             background: linear-gradient(135deg, #004E89 0%, #002B4F 100%);
@@ -61,9 +61,7 @@
             letter-spacing: -0.5px;
         }
 
-        .logo span {
-            color: #FF6B35;
-        }
+        .logo span { color: #FF6B35; }
 
         .badge {
             display: inline-block;
@@ -77,10 +75,10 @@
             letter-spacing: 1px;
         }
 
-        /* ========== HERO SECTION ========== */
+        /* ========== HERO ========== */
         .hero {
             background: linear-gradient(135deg, #004E89 0%, #002B4F 100%);
-            padding: 60px 0 80px;
+            padding: 70px 0 90px;
             position: relative;
             overflow: hidden;
         }
@@ -89,14 +87,14 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
-            background-size: 24px 24px;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+            background-size: 28px 28px;
         }
 
         .hero .container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            gap: 56px;
             align-items: center;
             position: relative;
             z-index: 1;
@@ -105,32 +103,31 @@
         .hero-text h1 {
             font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 800;
-            font-size: 2.6rem;
+            font-size: 2.7rem;
             color: #FFFFFF;
-            line-height: 1.12;
-            margin-bottom: 16px;
+            line-height: 1.1;
+            margin-bottom: 20px;
         }
 
-        .hero-text h1 .highlight {
-            color: #FF6B35;
-        }
+        .hero-text h1 .highlight { color: #FF6B35; }
 
-        .hero-text p {
-            font-size: 1.1rem;
+        .hero-text .subtitle {
+            font-size: 1.15rem;
             color: rgba(255,255,255,0.8);
-            margin-bottom: 28px;
-            max-width: 420px;
+            margin-bottom: 32px;
+            max-width: 440px;
+            line-height: 1.6;
         }
 
         .hero-cta {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 32px;
+            padding: 16px 36px;
             background: #FF6B35;
             color: #FFFFFF;
             font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
+            font-size: 1.05rem;
             font-weight: 700;
             border: none;
             border-radius: 12px;
@@ -139,16 +136,11 @@
             text-decoration: none;
         }
 
-        .hero-cta:hover {
-            background: #E55A28;
-        }
-
-        .hero-cta:active {
-            transform: scale(0.98);
-        }
+        .hero-cta:hover { background: #E55A28; }
+        .hero-cta:active { transform: scale(0.98); }
 
         .hero-social-proof {
-            margin-top: 24px;
+            margin-top: 28px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -163,28 +155,27 @@
 
         .hero-social-proof .counter-label {
             font-size: 0.85rem;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255,255,255,0.55);
         }
 
-        /* ========== PHONE MOCKUP ========== */
+        /* ========== PHONE MOCKUP (Hero) ========== */
         .phone-mockup {
-            width: 280px;
+            width: 300px;
             margin: 0 auto;
             background: #1A1A2E;
-            border-radius: 36px;
-            padding: 12px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border-radius: 40px;
+            padding: 14px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.45);
             position: relative;
         }
 
         .phone-notch {
-            width: 120px;
-            height: 28px;
+            width: 110px;
+            height: 26px;
             background: #1A1A2E;
-            border-radius: 0 0 16px 16px;
-            margin: 0 auto;
+            border-radius: 0 0 14px 14px;
             position: absolute;
-            top: 12px;
+            top: 14px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 2;
@@ -192,9 +183,8 @@
 
         .phone-screen {
             background: #FFFFFF;
-            border-radius: 26px;
+            border-radius: 28px;
             overflow: hidden;
-            min-height: 400px;
         }
 
         .phone-status-bar {
@@ -202,7 +192,6 @@
             padding: 14px 20px 8px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
             font-size: 0.7rem;
             color: rgba(255,255,255,0.9);
             font-weight: 500;
@@ -210,22 +199,20 @@
 
         .phone-app-header {
             background: #004E89;
-            padding: 8px 20px 14px;
+            padding: 6px 20px 14px;
             color: #FFFFFF;
             font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 700;
             font-size: 0.95rem;
         }
 
-        .phone-invoice {
-            padding: 16px;
-        }
+        .phone-invoice { padding: 16px; }
 
         .phone-invoice-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .phone-invoice-client {
@@ -270,33 +257,44 @@
 
         .phone-photo {
             border-radius: 8px;
-            height: 80px;
+            height: 85px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.7rem;
             font-weight: 700;
             color: #FFFFFF;
+            position: relative;
+            overflow: hidden;
         }
 
         .phone-photo.before {
-            background: linear-gradient(135deg, #C0C0C0, #9E9E9E);
+            background: linear-gradient(135deg, #D7CCC8, #A1887F);
         }
 
         .phone-photo.after {
-            background: linear-gradient(135deg, #66BB6A, #43A047);
+            background: linear-gradient(135deg, #66BB6A, #388E3C);
+        }
+
+        .phone-photo .photo-label {
+            background: rgba(0,0,0,0.4);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .phone-invoice-details {
             border-top: 1px solid #F0F0F0;
-            padding-top: 12px;
+            padding-top: 10px;
         }
 
         .phone-invoice-row {
             display: flex;
             justify-content: space-between;
             font-size: 0.78rem;
-            padding: 4px 0;
+            padding: 3px 0;
             color: #555;
         }
 
@@ -310,12 +308,12 @@
 
         /* ========== PROBLEM SECTION ========== */
         .problem-section {
-            padding: 80px 0;
+            padding: 90px 0;
             background: #F8F9FB;
         }
 
         .problem-section .container {
-            max-width: 640px;
+            max-width: 960px;
         }
 
         .section-label {
@@ -326,101 +324,471 @@
             letter-spacing: 1.5px;
             padding: 5px 14px;
             border-radius: 20px;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
         }
 
-        .section-label.orange {
-            background: #FFF0EB;
-            color: #FF6B35;
+        .section-label.orange { background: #FFF0EB; color: #FF6B35; }
+        .section-label.green { background: #E8F5E9; color: #2E7D32; }
+        .section-label.blue { background: #E3F2FD; color: #004E89; }
+
+        .problem-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+            margin-bottom: 40px;
         }
 
-        .section-label.green {
-            background: #E8F5E9;
-            color: #2E7D32;
+        /* Left side: Phone with interrupting texts */
+        .problem-phone-wrap {
+            display: flex;
+            justify-content: center;
+            position: relative;
         }
 
-        .section-label.blue {
-            background: #E3F2FD;
-            color: #004E89;
+        .problem-phone {
+            width: 220px;
+            background: #1A1A2E;
+            border-radius: 30px;
+            padding: 10px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.15);
         }
 
-        /* ========== CHAT MOCKUP ========== */
-        .chat-mockup {
-            max-width: 420px;
-            margin: 0 auto 32px;
+        .problem-phone-screen {
+            background: #F0F0F0;
+            border-radius: 22px;
+            overflow: hidden;
+            min-height: 320px;
+            position: relative;
         }
 
-        .chat-bubble {
-            padding: 10px 16px;
-            border-radius: 18px;
-            font-size: 0.92rem;
-            margin-bottom: 8px;
-            max-width: 80%;
-            line-height: 1.45;
+        .problem-phone-top {
+            background: #E0E0E0;
+            padding: 24px 14px 10px;
+            font-size: 0.7rem;
+            color: #999;
+            text-align: center;
+            font-weight: 500;
         }
 
-        .chat-bubble.received {
+        .problem-phone-msgs {
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .problem-msg {
+            padding: 10px 14px;
+            border-radius: 16px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            max-width: 85%;
+            animation: msgPulse 3s infinite;
+        }
+
+        .problem-msg.client {
             background: #E9ECEF;
             color: #1A1A2E;
             border-bottom-left-radius: 4px;
             align-self: flex-start;
         }
 
-        .chat-bubble.sent {
-            background: #007AFF;
-            color: #FFFFFF;
-            border-bottom-right-radius: 4px;
-            margin-left: auto;
+        .problem-msg.alert {
+            background: #FFEBEE;
+            color: #C62828;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+            font-weight: 500;
         }
 
-        .chat-mockup {
+        @keyframes msgPulse {
+            0%, 100% { box-shadow: none; }
+            50% { box-shadow: 0 0 0 3px rgba(255,107,53,0.15); }
+        }
+
+        /* Notification banners floating over phone */
+        .notif-float {
+            position: absolute;
+            background: #FFFFFF;
+            border-radius: 14px;
+            padding: 10px 14px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #1A1A2E;
+            z-index: 3;
+            white-space: nowrap;
+        }
+
+        .notif-float.top {
+            top: -10px;
+            right: -30px;
+            animation: floatBounce 2.5s ease-in-out infinite;
+        }
+
+        .notif-float.bottom {
+            bottom: 40px;
+            left: -30px;
+            animation: floatBounce 2.5s ease-in-out infinite 0.5s;
+        }
+
+        .notif-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .notif-dot.red { background: #EF5350; }
+        .notif-dot.orange { background: #FF6B35; }
+
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* Right side: Camera roll illustration */
+        .camera-roll-wrap {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            gap: 16px;
         }
 
-        .chat-typing {
+        .camera-roll {
+            width: 100%;
+            max-width: 320px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            border: 1px solid #EAECF0;
+        }
+
+        .camera-roll-header {
             display: flex;
-            gap: 4px;
-            padding: 12px 16px;
-            background: #007AFF;
-            border-radius: 18px;
-            border-bottom-right-radius: 4px;
-            margin-left: auto;
-            max-width: 64px;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
         }
 
-        .chat-typing span {
-            width: 7px;
-            height: 7px;
-            background: rgba(255,255,255,0.6);
-            border-radius: 50%;
-            animation: typing 1.4s infinite;
+        .camera-roll-header span {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #1A1A2E;
         }
 
-        .chat-typing span:nth-child(2) { animation-delay: 0.2s; }
-        .chat-typing span:nth-child(3) { animation-delay: 0.4s; }
-
-        @keyframes typing {
-            0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
-            30% { opacity: 1; transform: translateY(-4px); }
+        .camera-roll-count {
+            font-size: 0.7rem;
+            color: #999;
         }
 
-        .problem-punchline {
+        .camera-roll-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .cam-thumb {
+            height: 60px;
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .cam-thumb:nth-child(1) { background: linear-gradient(135deg, #B0BEC5, #78909C); }
+        .cam-thumb:nth-child(2) { background: linear-gradient(135deg, #A5D6A7, #66BB6A); }
+        .cam-thumb:nth-child(3) { background: linear-gradient(135deg, #90CAF9, #42A5F5); }
+        .cam-thumb:nth-child(4) { background: linear-gradient(135deg, #CE93D8, #AB47BC); }
+        .cam-thumb:nth-child(5) { background: linear-gradient(135deg, #FFCC80, #FFA726); }
+        .cam-thumb:nth-child(6) { background: linear-gradient(135deg, #EF9A9A, #EF5350); }
+        .cam-thumb:nth-child(7) { background: linear-gradient(135deg, #80CBC4, #26A69A); }
+        .cam-thumb:nth-child(8) { background: linear-gradient(135deg, #FFF59D, #FFEE58); }
+        .cam-thumb:nth-child(9) { background: linear-gradient(135deg, #BCAAA4, #8D6E63); }
+
+        .cam-thumb.highlight {
+            outline: 3px solid #FF6B35;
+            outline-offset: -3px;
+        }
+
+        .cam-thumb.highlight::after {
+            content: '?';
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,107,53,0.3);
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 1.1rem;
+            border-radius: 6px;
+        }
+
+        .frustrated-caption {
+            font-size: 0.85rem;
+            color: #777;
             text-align: center;
+            font-style: italic;
+        }
+
+        .problem-caption {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .problem-caption strong {
+            color: #1A1A2E;
+        }
+
+        /* ========== SOLUTION SECTION ========== */
+        .solution-section {
+            padding: 90px 0;
+        }
+
+        .solution-section .container {
+            text-align: center;
+        }
+
+        .solution-headline {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 2.4rem;
+            color: #1A1A2E;
+            margin-bottom: 12px;
+            line-height: 1.15;
+        }
+
+        .solution-headline .highlight { color: #FF6B35; }
+
+        .solution-sub {
+            font-size: 1.05rem;
+            color: #777;
+            margin-bottom: 48px;
+        }
+
+        .solution-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 56px;
+            align-items: center;
+            text-align: left;
+        }
+
+        /* Large invoice mockup */
+        .invoice-mockup-large {
+            background: #FFFFFF;
+            border: 1px solid #EAECF0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+
+        .inv-mock-header {
+            background: #004E89;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .inv-mock-logo {
             font-family: 'Bricolage Grotesque', sans-serif;
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 0.9rem;
+            color: #FFFFFF;
+        }
+
+        .inv-mock-badge {
+            background: #E8F5E9;
+            color: #2E7D32;
+            font-size: 0.68rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 8px;
+        }
+
+        .inv-mock-body { padding: 24px; }
+
+        .inv-mock-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .inv-mock-field label {
+            display: block;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .inv-mock-field span {
+            font-size: 0.9rem;
+            font-weight: 500;
             color: #1A1A2E;
+        }
+
+        .inv-mock-field .amount {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #004E89;
+        }
+
+        .inv-mock-photos-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .inv-mock-photos {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .inv-mock-photo {
+            height: 110px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #FFFFFF;
+        }
+
+        .inv-mock-photo.before {
+            background: linear-gradient(135deg, #D7CCC8, #A1887F);
+        }
+
+        .inv-mock-photo.after {
+            background: linear-gradient(135deg, #66BB6A, #388E3C);
+        }
+
+        .inv-mock-photo .label {
+            background: rgba(0,0,0,0.35);
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .inv-mock-photo .icon-placeholder {
+            width: 28px;
+            height: 28px;
+            border: 2px solid rgba(255,255,255,0.6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inv-mock-photo .icon-placeholder svg {
+            width: 14px;
+            height: 14px;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .inv-mock-line-items {
+            border-top: 1px solid #F0F0F0;
+            padding-top: 16px;
+        }
+
+        .inv-mock-line {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            padding: 5px 0;
+            color: #555;
+        }
+
+        .inv-mock-line.total {
+            font-weight: 700;
+            color: #1A1A2E;
+            border-top: 1px solid #F0F0F0;
+            padding-top: 10px;
+            margin-top: 6px;
+            font-size: 0.95rem;
+        }
+
+        /* Solution steps */
+        .solution-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .solution-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .step-number {
+            width: 44px;
+            height: 44px;
+            background: #FFF0EB;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .step-number svg {
+            width: 20px;
+            height: 20px;
+            color: #FF6B35;
+        }
+
+        .step-text h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #1A1A2E;
+            margin-bottom: 4px;
+        }
+
+        .step-text p {
+            font-size: 0.9rem;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        .solution-arrow {
+            text-align: center;
             margin-top: 8px;
         }
 
-        .problem-punchline .highlight {
+        .solution-arrow svg {
             color: #FF6B35;
+            width: 24px;
+            height: 24px;
+            opacity: 0.4;
         }
 
         /* ========== FEATURES SECTION ========== */
         .features-section {
             padding: 80px 0;
+            background: #F8F9FB;
         }
 
         .features-section .section-heading {
@@ -429,29 +797,21 @@
             font-size: 2rem;
             color: #1A1A2E;
             text-align: center;
-            margin-bottom: 12px;
-        }
-
-        .features-section .section-sub {
-            text-align: center;
-            color: #777;
-            font-size: 1.05rem;
             margin-bottom: 48px;
         }
 
-        /* Top 3 featured cards */
         .feature-cards {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 24px;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
 
         .feature-card {
             background: #FFFFFF;
             border: 1px solid #EAECF0;
             border-radius: 12px;
-            padding: 24px;
+            padding: 28px 24px;
             transition: box-shadow 0.2s;
         }
 
@@ -467,202 +827,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 14px;
+            margin-bottom: 16px;
         }
 
-        .feature-card-icon svg,
-        .feature-card-icon i {
-            color: #FF6B35;
-            width: 20px;
-            height: 20px;
-        }
+        .feature-card-icon svg { color: #FF6B35; width: 20px; height: 20px; }
 
         .feature-card h3 {
-            font-family: 'DM Sans', sans-serif;
             font-weight: 700;
             font-size: 1rem;
             color: #1A1A2E;
             margin-bottom: 6px;
         }
 
-        .feature-card > p {
+        .feature-card p {
             font-size: 0.85rem;
             color: #777;
-            margin-bottom: 16px;
             line-height: 1.5;
-        }
-
-        /* Feature card mini mockups */
-        .mini-mockup {
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        /* Photo invoice mockup */
-        .mockup-invoice {
-            background: #F8F9FB;
-            border: 1px solid #EAECF0;
-            border-radius: 8px;
-            padding: 12px;
-        }
-
-        .mockup-invoice-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .mockup-invoice-top .client {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #1A1A2E;
-        }
-
-        .mockup-invoice-top .amount {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #004E89;
-        }
-
-        .mockup-photo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6px;
-        }
-
-        .mockup-photo-grid .photo {
-            height: 48px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.6rem;
-            font-weight: 700;
-            color: #FFFFFF;
-        }
-
-        .mockup-photo-grid .photo.before {
-            background: linear-gradient(135deg, #BDBDBD, #9E9E9E);
-        }
-
-        .mockup-photo-grid .photo.after {
-            background: linear-gradient(135deg, #66BB6A, #43A047);
-        }
-
-        /* SMS mockup */
-        .mockup-sms {
-            background: #E8F5E9;
-            border-radius: 16px;
-            padding: 14px 16px;
-            position: relative;
-        }
-
-        .mockup-sms::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 20px;
-            width: 12px;
-            height: 12px;
-            background: #E8F5E9;
-            transform: rotate(45deg);
-        }
-
-        .mockup-sms p {
-            font-size: 0.78rem;
-            color: #1A1A2E;
-            line-height: 1.5;
-        }
-
-        .mockup-sms .link {
-            color: #007AFF;
-            text-decoration: underline;
-        }
-
-        /* Notification mockup */
-        .mockup-notification {
-            background: #FFFFFF;
-            border: 1px solid #EAECF0;
-            border-radius: 12px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
-
-        .mockup-notif-icon {
-            width: 36px;
-            height: 36px;
-            background: #E8F5E9;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            color: #2E7D32;
-            font-size: 1rem;
-        }
-
-        .mockup-notif-text {
-            font-size: 0.78rem;
-            color: #1A1A2E;
-            line-height: 1.45;
-        }
-
-        .mockup-notif-text strong {
-            color: #2E7D32;
-        }
-
-        /* Bottom 3 compact features */
-        .feature-compact-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .feature-compact {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-        }
-
-        .feature-compact-icon {
-            width: 44px;
-            height: 44px;
-            background: #FFF0EB;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .feature-compact-icon svg,
-        .feature-compact-icon i {
-            color: #FF6B35;
-            width: 20px;
-            height: 20px;
-        }
-
-        .feature-compact h3 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #1A1A2E;
-            margin-bottom: 2px;
-        }
-
-        .feature-compact p {
-            font-size: 0.82rem;
-            color: #777;
-            line-height: 1.45;
         }
 
         /* ========== TESTIMONIALS ========== */
         .testimonials-section {
             padding: 80px 0;
-            background: #F8F9FB;
         }
 
         .testimonials-section .section-heading {
@@ -726,155 +911,48 @@
         /* ========== FORM SECTION ========== */
         .form-section {
             padding: 80px 0;
+            background: linear-gradient(135deg, #004E89 0%, #002B4F 100%);
+            position: relative;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 28px 28px;
         }
 
         .form-section .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: start;
+            max-width: 560px;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Dashboard mockup */
-        .dashboard-mockup {
-            background: #FFFFFF;
-            border: 1px solid #EAECF0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-        }
-
-        .dash-header {
-            background: #004E89;
-            padding: 14px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .dash-header-title {
-            color: #FFFFFF;
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        .dash-header-avatar {
-            width: 28px;
-            height: 28px;
-            background: #FF6B35;
-            border-radius: 50%;
-        }
-
-        .dash-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1px;
-            background: #EAECF0;
-        }
-
-        .dash-stat {
-            background: #FFFFFF;
-            padding: 16px 12px;
-            text-align: center;
-        }
-
-        .dash-stat-number {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: #004E89;
-        }
-
-        .dash-stat-label {
-            font-size: 0.7rem;
-            color: #999;
-            margin-top: 2px;
-        }
-
-        .dash-invoices {
-            padding: 16px 20px;
-        }
-
-        .dash-invoices-title {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-        }
-
-        .dash-invoice-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid #F5F5F5;
-        }
-
-        .dash-invoice-row:last-child {
-            border-bottom: none;
-        }
-
-        .dash-invoice-client {
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #1A1A2E;
-        }
-
-        .dash-invoice-right {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .dash-invoice-amount {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #1A1A2E;
-        }
-
-        .dash-badge {
-            font-size: 0.65rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 6px;
-        }
-
-        .dash-badge.paid {
-            background: #E8F5E9;
-            color: #2E7D32;
-        }
-
-        .dash-badge.pending {
-            background: #FFF8E1;
-            color: #F57F17;
-        }
-
-        /* Form styling */
         .form-wrapper {
-            background: #F8F9FB;
-            border-radius: 12px;
-            padding: 32px 28px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 40px 36px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         .form-wrapper h2 {
             font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
+            font-weight: 800;
+            font-size: 1.5rem;
             margin-bottom: 6px;
             color: #1A1A2E;
+            text-align: center;
         }
 
         .form-wrapper .form-sub {
             font-size: 0.9rem;
             color: #777;
-            margin-bottom: 24px;
+            margin-bottom: 28px;
+            text-align: center;
         }
 
-        .form-group {
-            margin-bottom: 14px;
-        }
+        .form-group { margin-bottom: 14px; }
 
         .form-group label {
             display: block;
@@ -884,9 +962,7 @@
             margin-bottom: 5px;
         }
 
-        .form-group label .required {
-            color: #FF6B35;
-        }
+        .form-group label .required { color: #FF6B35; }
 
         .form-group input,
         .form-group select {
@@ -916,9 +992,7 @@
             border-color: #FF6B35;
         }
 
-        .form-group input::placeholder {
-            color: #AAA;
-        }
+        .form-group input::placeholder { color: #AAA; }
 
         .form-group .error-msg {
             font-size: 0.78rem;
@@ -942,19 +1016,33 @@
             margin-top: 6px;
         }
 
-        .submit-btn:hover {
-            background: #E55A28;
-        }
-
-        .submit-btn:active {
-            transform: scale(0.98);
-        }
+        .submit-btn:hover { background: #E55A28; }
+        .submit-btn:active { transform: scale(0.98); }
 
         .privacy-note {
             text-align: center;
             font-size: 0.75rem;
             color: #999;
             margin-top: 12px;
+        }
+
+        .form-counter {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid #F0F0F0;
+        }
+
+        .form-counter .counter {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #004E89;
+        }
+
+        .form-counter .counter-label {
+            font-size: 0.82rem;
+            color: #999;
         }
 
         /* ========== SUCCESS MESSAGE ========== */
@@ -1000,9 +1088,7 @@
 
         /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
-            .hero {
-                padding: 40px 0 60px;
-            }
+            .hero { padding: 48px 0 64px; }
 
             .hero .container {
                 grid-template-columns: 1fr;
@@ -1010,38 +1096,32 @@
                 text-align: center;
             }
 
-            .hero-text h1 {
-                font-size: 2rem;
+            .hero-text h1 { font-size: 2rem; }
+            .hero-text .subtitle { margin: 0 auto 28px; }
+            .hero-social-proof { justify-content: center; }
+            .phone-mockup { width: 260px; }
+
+            .problem-split {
+                grid-template-columns: 1fr;
+                gap: 32px;
             }
 
-            .hero-text p {
-                margin: 0 auto 24px;
-            }
+            .notif-float.top { right: -10px; }
+            .notif-float.bottom { left: -10px; }
 
-            .hero-social-proof {
-                justify-content: center;
-            }
+            .solution-headline { font-size: 1.8rem; }
 
-            .phone-mockup {
-                width: 260px;
+            .solution-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .feature-cards {
                 grid-template-columns: 1fr;
             }
 
-            .feature-compact-row {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
             .testimonial-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .form-section .container {
-                grid-template-columns: 1fr;
-                gap: 32px;
             }
 
             .features-section .section-heading,
@@ -1049,23 +1129,17 @@
                 font-size: 1.6rem;
             }
 
-            .problem-punchline {
-                font-size: 1.1rem;
+            .form-wrapper {
+                padding: 32px 24px;
             }
         }
 
         @media (max-width: 480px) {
-            .hero-text h1 {
-                font-size: 1.7rem;
-            }
-
-            .phone-mockup {
-                width: 240px;
-            }
-
-            .container {
-                padding: 0 16px;
-            }
+            .hero-text h1 { font-size: 1.7rem; }
+            .phone-mockup { width: 240px; }
+            .container { padding: 0 16px; }
+            .solution-headline { font-size: 1.5rem; }
+            .problem-phone { width: 190px; }
         }
     </style>
 </head>
@@ -1078,16 +1152,16 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ==================== HERO ==================== -->
     <section class="hero">
         <div class="container">
             <div class="hero-text">
-                <h1>Stop the <span class="highlight">"Did You Finish?"</span> Texts&mdash;Get Paid Faster.</h1>
-                <p>Attach before &amp; after photos to your invoices. Show your work, get paid. Built for service professionals.</p>
-                <a href="#signupForm" class="hero-cta">Join the Waitlist &rarr;</a>
+                <h1>Stop proving you did the work. <span class="highlight">Show it in the invoice.</span></h1>
+                <p class="subtitle">Attach before/after photos to every invoice. Customers see proof instantly. You get paid faster.</p>
+                <a href="#signupForm" class="hero-cta">Get Early Access &rarr;</a>
                 <div class="hero-social-proof">
                     <span class="counter" id="heroCounter">52</span>
-                    <span class="counter-label">service pros already signed up</span>
+                    <span class="counter-label">service pros on the waitlist</span>
                 </div>
             </div>
             <div class="hero-visual">
@@ -1107,8 +1181,8 @@
                             <span class="phone-invoice-status">Sent</span>
                             <div class="phone-invoice-label">Photo Proof</div>
                             <div class="phone-photo-grid">
-                                <div class="phone-photo before">Before</div>
-                                <div class="phone-photo after">After</div>
+                                <div class="phone-photo before"><span class="photo-label">Before</span></div>
+                                <div class="phone-photo after"><span class="photo-label">After</span></div>
                             </div>
                             <div class="phone-invoice-details">
                                 <div class="phone-invoice-row">
@@ -1131,123 +1205,194 @@
         </div>
     </section>
 
-    <!-- Problem Section -->
+    <!-- ==================== PROBLEM ==================== -->
     <section class="problem-section">
-        <div class="container" style="text-align: center;">
-            <div class="section-label orange">The Problem</div>
-            <div class="chat-mockup">
-                <div class="chat-bubble received">Hey, did you finish everything?</div>
-                <div class="chat-bubble sent">Yes all done! &#10003;</div>
-                <div class="chat-bubble received">Can you send me photos?</div>
-                <div class="chat-bubble sent">Sure one sec...</div>
-                <div class="chat-bubble received">I need proof before I pay</div>
-                <div class="chat-typing">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <div class="container">
+            <div style="text-align: center;">
+                <div class="section-label orange">The Problem</div>
+            </div>
+
+            <div class="problem-split">
+                <!-- LEFT: Phone with interrupting texts -->
+                <div class="problem-phone-wrap">
+                    <div class="notif-float top">
+                        <span class="notif-dot red"></span>
+                        "Did you finish?"
+                    </div>
+                    <div class="problem-phone">
+                        <div class="problem-phone-screen">
+                            <div class="problem-phone-top">Messages</div>
+                            <div class="problem-phone-msgs">
+                                <div class="problem-msg client">Did you finish everything?</div>
+                                <div class="problem-msg client">Can you send me photos?</div>
+                                <div class="problem-msg alert">I need proof before I pay.</div>
+                                <div class="problem-msg client">Hello?? Are you there?</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="notif-float bottom">
+                        <span class="notif-dot orange"></span>
+                        "Send me photos"
+                    </div>
+                </div>
+
+                <!-- RIGHT: Camera roll frustration -->
+                <div class="camera-roll-wrap">
+                    <div class="camera-roll">
+                        <div class="camera-roll-header">
+                            <span>Camera Roll</span>
+                            <span class="camera-roll-count">847 photos</span>
+                        </div>
+                        <div class="camera-roll-grid">
+                            <div class="cam-thumb"></div>
+                            <div class="cam-thumb"></div>
+                            <div class="cam-thumb highlight"></div>
+                            <div class="cam-thumb"></div>
+                            <div class="cam-thumb highlight"></div>
+                            <div class="cam-thumb"></div>
+                            <div class="cam-thumb"></div>
+                            <div class="cam-thumb"></div>
+                            <div class="cam-thumb highlight"></div>
+                        </div>
+                    </div>
+                    <p class="frustrated-caption">Which ones were from Tuesday's job...?</p>
                 </div>
             </div>
-            <p class="problem-punchline">Sound familiar? You waste <span class="highlight">5+ hours/week</span> on this.</p>
+
+            <p class="problem-caption">
+                You're elbow-deep in the next job when they hit you up asking for proof. Now you're <strong>scrolling through hundreds of photos</strong>, re-sending what you already took.
+            </p>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
+    <!-- ==================== SOLUTION ==================== -->
+    <section class="solution-section">
         <div class="container">
-            <div class="section-label blue" style="display: block; text-align: center;">Features</div>
-            <h2 class="section-heading">Everything You Need to Get Paid</h2>
-            <p class="section-sub">No more chasing clients. No more digging through your camera roll.</p>
+            <div class="section-label green" style="display: block; text-align: center;">The Solution</div>
+            <h2 class="solution-headline">Photos + Invoice = <span class="highlight">One Message. Done.</span></h2>
+            <p class="solution-sub">No more separate texts. No more camera roll digging. Just proof, built right in.</p>
 
-            <!-- Top 3 feature cards with mockups -->
-            <div class="feature-cards">
-                <!-- Photo Invoices -->
-                <div class="feature-card">
-                    <div class="feature-card-icon">
-                        <i data-lucide="camera"></i>
+            <div class="solution-layout">
+                <!-- Invoice mockup with embedded photos -->
+                <div class="invoice-mockup-large">
+                    <div class="inv-mock-header">
+                        <span class="inv-mock-logo">CaptureNInvoice</span>
+                        <span class="inv-mock-badge">Sent</span>
                     </div>
-                    <h3>Photo Invoices</h3>
-                    <p>Attach before &amp; after photos to every invoice as proof of work.</p>
-                    <div class="mini-mockup">
-                        <div class="mockup-invoice">
-                            <div class="mockup-invoice-top">
-                                <span class="client">Maria's Cleaning</span>
+                    <div class="inv-mock-body">
+                        <div class="inv-mock-row">
+                            <div class="inv-mock-field">
+                                <label>Client</label>
+                                <span>Sarah Johnson</span>
+                            </div>
+                            <div class="inv-mock-field" style="text-align: right;">
+                                <label>Amount</label>
                                 <span class="amount">$175.00</span>
                             </div>
-                            <div class="mockup-photo-grid">
-                                <div class="photo before">Before</div>
-                                <div class="photo after">After</div>
+                        </div>
+                        <div class="inv-mock-photos-label">Photo Proof Attached</div>
+                        <div class="inv-mock-photos">
+                            <div class="inv-mock-photo before">
+                                <div class="icon-placeholder"><i data-lucide="image"></i></div>
+                                <span class="label">Before</span>
+                            </div>
+                            <div class="inv-mock-photo after">
+                                <div class="icon-placeholder"><i data-lucide="image"></i></div>
+                                <span class="label">After</span>
+                            </div>
+                        </div>
+                        <div class="inv-mock-line-items">
+                            <div class="inv-mock-line">
+                                <span>Deep Clean - Kitchen</span>
+                                <span>$125.00</span>
+                            </div>
+                            <div class="inv-mock-line">
+                                <span>Oven Detail</span>
+                                <span>$50.00</span>
+                            </div>
+                            <div class="inv-mock-line total">
+                                <span>Total Due</span>
+                                <span>$175.00</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Instant Send (SMS) -->
-                <div class="feature-card">
-                    <div class="feature-card-icon">
-                        <i data-lucide="message-square"></i>
-                    </div>
-                    <h3>Instant Send (SMS)</h3>
-                    <p>Text invoice links to clients. No email needed.</p>
-                    <div class="mini-mockup">
-                        <div class="mockup-sms">
-                            <p>You have a new invoice from <strong>Maria's Cleaning</strong> &mdash; Tap to view &amp; pay: <span class="link">$175.00</span></p>
+                <!-- 4 Steps -->
+                <div class="solution-steps">
+                    <div class="solution-step">
+                        <div class="step-number"><i data-lucide="camera"></i></div>
+                        <div class="step-text">
+                            <h3>Snap photos as you work</h3>
+                            <p>Take before and after shots right from the app while you're on the job.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Payment Notifications -->
-                <div class="feature-card">
-                    <div class="feature-card-icon">
-                        <i data-lucide="bell-ring"></i>
-                    </div>
-                    <h3>Payment Notifications</h3>
-                    <p>Get notified when invoices are viewed and paid.</p>
-                    <div class="mini-mockup">
-                        <div class="mockup-notification">
-                            <div class="mockup-notif-icon">&#10003;</div>
-                            <div class="mockup-notif-text">
-                                <strong>Invoice #1042 paid</strong><br>
-                                $250.00 received
-                            </div>
+                    <div class="solution-step">
+                        <div class="step-number"><i data-lucide="paperclip"></i></div>
+                        <div class="step-text">
+                            <h3>Attach to invoice automatically</h3>
+                            <p>Photos link directly to the invoice. No digging through your camera roll.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Bottom 3 compact features -->
-            <div class="feature-compact-row">
-                <div class="feature-compact">
-                    <div class="feature-compact-icon">
-                        <i data-lucide="dollar-sign"></i>
+                    <div class="solution-step">
+                        <div class="step-number"><i data-lucide="send"></i></div>
+                        <div class="step-text">
+                            <h3>Send to customer</h3>
+                            <p>One tap sends the invoice with photos via text or email. Done.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3>Faster Payments</h3>
-                        <p>Clients pay quicker when they see the work done.</p>
-                    </div>
-                </div>
-                <div class="feature-compact">
-                    <div class="feature-compact-icon">
-                        <i data-lucide="copy"></i>
-                    </div>
-                    <div>
-                        <h3>Duplicate Invoice</h3>
-                        <p>Copy last invoice for repeat jobs in one tap.</p>
-                    </div>
-                </div>
-                <div class="feature-compact">
-                    <div class="feature-compact-icon">
-                        <i data-lucide="banknote"></i>
-                    </div>
-                    <div>
-                        <h3>Paid in Cash</h3>
-                        <p>Easily track cash payments and stay organized.</p>
+                    <div class="solution-step">
+                        <div class="step-number"><i data-lucide="circle-check"></i></div>
+                        <div class="step-text">
+                            <h3>They see proof, they pay</h3>
+                            <p>Customer sees exactly what was done. No questions, no follow-ups, just payment.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- ==================== FEATURES ==================== -->
+    <section class="features-section">
+        <div class="container">
+            <h2 class="section-heading">More Built for Service Pros</h2>
+            <div class="feature-cards">
+                <div class="feature-card">
+                    <div class="feature-card-icon"><i data-lucide="message-square"></i></div>
+                    <h3>Instant Send (SMS)</h3>
+                    <p>Text invoice links directly to clients. No email needed, no apps to download.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon"><i data-lucide="bell-ring"></i></div>
+                    <h3>Payment Notifications</h3>
+                    <p>Get notified the moment your invoice is viewed and when it's paid.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon"><i data-lucide="dollar-sign"></i></div>
+                    <h3>Faster Payments</h3>
+                    <p>Clients pay quicker when they can see the work was done right.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon"><i data-lucide="copy"></i></div>
+                    <h3>Duplicate Invoice</h3>
+                    <p>Repeat client? Copy last invoice and update photos in one tap.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon"><i data-lucide="banknote"></i></div>
+                    <h3>Cash Tracking</h3>
+                    <p>Mark invoices as paid in cash so everything stays organized.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card-icon"><i data-lucide="smartphone"></i></div>
+                    <h3>Works on Your Phone</h3>
+                    <p>Built mobile-first. Create and send invoices from the job site.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
     <section class="testimonials-section">
         <div class="container">
             <h2 class="section-heading">Service Pros Love It</h2>
@@ -1274,56 +1419,9 @@
         </div>
     </section>
 
-    <!-- Form Section with Dashboard Preview -->
+    <!-- ==================== SIGNUP FORM ==================== -->
     <section class="form-section" id="signupForm">
         <div class="container">
-            <!-- Dashboard Mockup -->
-            <div class="dashboard-mockup">
-                <div class="dash-header">
-                    <span class="dash-header-title">Dashboard</span>
-                    <div class="dash-header-avatar"></div>
-                </div>
-                <div class="dash-stats">
-                    <div class="dash-stat">
-                        <div class="dash-stat-number">12</div>
-                        <div class="dash-stat-label">Invoices</div>
-                    </div>
-                    <div class="dash-stat">
-                        <div class="dash-stat-number">$3,240</div>
-                        <div class="dash-stat-label">Earned</div>
-                    </div>
-                    <div class="dash-stat">
-                        <div class="dash-stat-number">98%</div>
-                        <div class="dash-stat-label">Paid</div>
-                    </div>
-                </div>
-                <div class="dash-invoices">
-                    <div class="dash-invoices-title">Recent Invoices</div>
-                    <div class="dash-invoice-row">
-                        <span class="dash-invoice-client">Sarah Johnson</span>
-                        <div class="dash-invoice-right">
-                            <span class="dash-invoice-amount">$175.00</span>
-                            <span class="dash-badge paid">Paid</span>
-                        </div>
-                    </div>
-                    <div class="dash-invoice-row">
-                        <span class="dash-invoice-client">Mike Chen</span>
-                        <div class="dash-invoice-right">
-                            <span class="dash-invoice-amount">$320.00</span>
-                            <span class="dash-badge paid">Paid</span>
-                        </div>
-                    </div>
-                    <div class="dash-invoice-row">
-                        <span class="dash-invoice-client">Lisa Park</span>
-                        <div class="dash-invoice-right">
-                            <span class="dash-invoice-amount">$95.00</span>
-                            <span class="dash-badge pending">Pending</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Signup Form -->
             <div class="form-wrapper" id="formWrapper">
                 <h2>Get Early Access</h2>
                 <p class="form-sub">Be the first to try CaptureNInvoice. It's free.</p>
@@ -1355,9 +1453,13 @@
                     <button type="submit" class="submit-btn">Join the Waitlist</button>
                     <p class="privacy-note">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
                 </form>
+                <div class="form-counter">
+                    <span class="counter" id="formCounter">52</span>
+                    <span class="counter-label"> service pros already signed up</span>
+                </div>
             </div>
 
-            <!-- Success Message (hidden by default) -->
+            <!-- Success Message -->
             <div class="success-message" id="successMessage">
                 <div class="check-icon">&#10003;</div>
                 <h2>You're on the list!</h2>
@@ -1382,7 +1484,6 @@
 
             // ========== SIGNUP COUNTER ==========
             const COUNTER_KEY = 'captureninvoice_counter';
-            const SIGNUPS_KEY = 'captureninvoice_signups';
 
             function getCounter() {
                 const stored = localStorage.getItem(COUNTER_KEY);
@@ -1398,9 +1499,9 @@
             function updateCounterDisplay() {
                 const count = getCounter();
                 document.getElementById('heroCounter').textContent = count;
+                document.getElementById('formCounter').textContent = count;
             }
 
-            // Initialize counter display
             updateCounterDisplay();
 
             // ========== SMOOTH SCROLL ==========
@@ -1420,7 +1521,6 @@
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
 
-                // Clear previous errors
                 document.querySelectorAll('.error-msg').forEach(function(el) {
                     el.style.display = 'none';
                 });
@@ -1431,14 +1531,12 @@
 
                 let hasError = false;
 
-                // Validate email
                 var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!email || !emailPattern.test(email)) {
                     document.getElementById('emailError').style.display = 'block';
                     hasError = true;
                 }
 
-                // Validate business type
                 if (!businessType) {
                     document.getElementById('businessError').style.display = 'block';
                     hasError = true;
