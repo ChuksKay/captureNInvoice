@@ -1387,26 +1387,38 @@
             }
 
             // ========== SIGNUP COUNTER ==========
-            const COUNTER_KEY = 'captureninvoice_counter';
+            const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbzsN3cgCTgBk61OTn9cvzppAzyFPRSU0rzpEXCbOx5Kqyh-XzU66elRffdlJDnCgBfS/exec';
+            const BASE_COUNT = 52;
+            var currentCount = BASE_COUNT;
 
-            function getCounter() {
-                const stored = localStorage.getItem(COUNTER_KEY);
-                return stored ? parseInt(stored, 10) : 52;
-            }
-
-            function incrementCounter() {
-                const current = getCounter() + 1;
-                localStorage.setItem(COUNTER_KEY, current);
-                return current;
+            function formatCount(count) {
+                return count >= 100 ? '100+' : String(count);
             }
 
             function updateCounterDisplay() {
-                const count = getCounter();
-                document.getElementById('heroCounter').textContent = count;
-                document.getElementById('formCounter').textContent = count;
+                var display = formatCount(currentCount);
+                document.getElementById('heroCounter').textContent = display;
+                document.getElementById('formCounter').textContent = display;
+            }
+
+            // Fetch live count from Google Sheets on page load
+            function fetchLiveCount() {
+                fetch(WEBHOOK_URL + '?action=getCount')
+                    .then(function(res) { return res.json(); })
+                    .then(function(data) {
+                        if (data && typeof data.count === 'number') {
+                            currentCount = data.count + BASE_COUNT;
+                        }
+                        updateCounterDisplay();
+                    })
+                    .catch(function() {
+                        // If unreachable, keep default
+                        updateCounterDisplay();
+                    });
             }
 
             updateCounterDisplay();
+            fetchLiveCount();
 
             // ========== SMOOTH SCROLL ==========
             document.querySelector('.hero-cta').addEventListener('click', function(e) {
@@ -1449,7 +1461,7 @@
                 if (hasError) return;
 
                 // POST to Google Sheets webhook
-                fetch('https://script.google.com/macros/s/AKfycbzsN3cgCTgBk61OTn9cvzppAzyFPRSU0rzpEXCbOx5Kqyh-XzU66elRffdlJDnCgBfS/exec', {
+                fetch(WEBHOOK_URL, {
                     method: 'POST',
                     body: JSON.stringify({
                         email: email,
@@ -1459,8 +1471,8 @@
                     })
                 });
 
-                // Increment and update counter
-                var newCount = incrementCounter();
+                // Increment counter locally for instant feedback
+                currentCount++;
                 updateCounterDisplay();
 
                 // Show success, hide form
