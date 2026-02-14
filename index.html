@@ -963,24 +963,6 @@
             margin-top: 12px;
         }
 
-        .form-counter {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 16px;
-            border-top: 1px solid #F0F0F0;
-        }
-
-        .form-counter .counter {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: #004E89;
-        }
-
-        .form-counter .counter-label {
-            font-size: 0.82rem;
-            color: #999;
-        }
 
         /* ========== SUCCESS MESSAGE ========== */
         .success-message {
@@ -1357,10 +1339,6 @@
                     <button type="submit" class="submit-btn">Get Early Access</button>
                     <p class="privacy-note">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
                 </form>
-                <div class="form-counter">
-                    <span class="counter" id="formCounter">52</span>
-                    <span class="counter-label"> service pros already signed up</span>
-                </div>
             </div>
 
             <!-- Success Message -->
@@ -1397,7 +1375,7 @@
 
             function updateCounterDisplay() {
                 var display = formatCount(currentCount);
-                document.getElementById('formCounter').textContent = display;
+                // counter display removed
             }
 
             // Fetch live count from Google Sheets on page load
