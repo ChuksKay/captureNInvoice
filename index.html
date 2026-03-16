@@ -1,1462 +1,1765 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CaptureNInvoice - Show Your Work, Get Paid Faster</title>
-    <meta name="description" content="Attach before/after photos to your invoices. Customers see proof instantly. You get paid faster.">
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="CaptureNInvoice - Show Your Work, Get Paid Faster">
-    <meta property="og:description" content="Attach before/after photos to your invoices. Customers see proof instantly. You get paid faster.">
-    <meta property="og:type" content="website">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
-    <style>
-        /* ========== RESET & BASE ========== */
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 400;
-            color: #1A1A2E;
-            background: #FFFFFF;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1060px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* ========== HEADER ========== */
-        .site-header {
-            padding: 20px 0;
-            background: linear-gradient(135deg, #004E89 0%, #002B4F 100%);
-        }
-
-        .site-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: #FFFFFF;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span { color: #FF6B35; }
-
-        .badge {
-            display: inline-block;
-            background: #FFD23F;
-            color: #1A1A2E;
-            font-size: 0.68rem;
-            font-weight: 700;
-            padding: 4px 12px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ========== HERO ========== */
-        .hero {
-            background: linear-gradient(135deg, #004E89 0%, #002B4F 100%);
-            padding: 70px 0 90px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
-            background-size: 28px 28px;
-        }
-
-        .hero .container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 56px;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text h1 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 2.7rem;
-            color: #FFFFFF;
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-text h1 .highlight { color: #FF6B35; }
-
-        .hero-text .subtitle {
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 32px;
-            max-width: 440px;
-            line-height: 1.6;
-        }
-
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 16px 36px;
-            background: #FF6B35;
-            color: #FFFFFF;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-            text-decoration: none;
-        }
-
-        .hero-cta:hover { background: #E55A28; }
-        .hero-cta:active { transform: scale(0.98); }
-
-        .hero-social-proof {
-            margin-top: 28px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .hero-social-proof .counter {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 1.2rem;
-            color: #FFD23F;
-        }
-
-        .hero-social-proof .counter-label {
-            font-size: 0.85rem;
-            color: rgba(255,255,255,0.55);
-        }
-
-        /* ========== PHONE MOCKUP (Hero) ========== */
-        .phone-mockup {
-            width: 300px;
-            margin: 0 auto;
-            background: #1A1A2E;
-            border-radius: 40px;
-            padding: 14px;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.45);
-            position: relative;
-        }
-
-        .phone-notch {
-            width: 110px;
-            height: 26px;
-            background: #1A1A2E;
-            border-radius: 0 0 14px 14px;
-            position: absolute;
-            top: 14px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        .phone-screen {
-            background: #FFFFFF;
-            border-radius: 28px;
-            overflow: hidden;
-        }
-
-        .phone-status-bar {
-            background: #004E89;
-            padding: 14px 20px 8px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.7rem;
-            color: rgba(255,255,255,0.9);
-            font-weight: 500;
-        }
-
-        .phone-app-header {
-            background: #004E89;
-            padding: 6px 20px 14px;
-            color: #FFFFFF;
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-
-        .phone-invoice { padding: 16px; }
-
-        .phone-invoice-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .phone-invoice-client {
-            font-weight: 700;
-            font-size: 0.85rem;
-            color: #1A1A2E;
-        }
-
-        .phone-invoice-amount {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 1.1rem;
-            color: #004E89;
-        }
-
-        .phone-invoice-status {
-            display: inline-block;
-            background: #E8F5E9;
-            color: #2E7D32;
-            font-size: 0.68rem;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 8px;
-            margin-bottom: 14px;
-        }
-
-        .phone-invoice-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .phone-photo-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 14px;
-        }
-
-        .phone-photo {
-            border-radius: 8px;
-            height: 85px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .phone-photo.before {
-            background: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400') center/cover no-repeat;
-        }
-
-        .phone-photo.after {
-            background: url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=400') center/cover no-repeat;
-        }
-
-        .phone-photo .photo-label {
-            background: rgba(0,0,0,0.4);
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .phone-invoice-details {
-            border-top: 1px solid #F0F0F0;
-            padding-top: 10px;
-        }
-
-        .phone-invoice-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.78rem;
-            padding: 3px 0;
-            color: #555;
-        }
-
-        .phone-invoice-row.total {
-            font-weight: 700;
-            color: #1A1A2E;
-            border-top: 1px solid #F0F0F0;
-            padding-top: 8px;
-            margin-top: 4px;
-        }
-
-        /* ========== PROBLEM SECTION ========== */
-        .problem-section {
-            padding: 90px 0;
-            background: #F8F9FB;
-        }
-
-        .problem-section .container {
-            max-width: 960px;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.72rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            padding: 5px 14px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-        }
-
-        .section-label.orange { background: #FFF0EB; color: #FF6B35; }
-        .section-label.green { background: #E8F5E9; color: #2E7D32; }
-        .section-label.blue { background: #E3F2FD; color: #004E89; }
-
-        .problem-split {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-        /* Left side: Phone with interrupting texts */
-        .problem-phone-wrap {
-            display: flex;
-            justify-content: center;
-            position: relative;
-        }
-
-        .problem-phone {
-            width: 220px;
-            background: #1A1A2E;
-            border-radius: 30px;
-            padding: 10px;
-            box-shadow: 0 16px 40px rgba(0,0,0,0.15);
-        }
-
-        .problem-phone-screen {
-            background: #F0F0F0;
-            border-radius: 22px;
-            overflow: hidden;
-            min-height: 320px;
-            position: relative;
-        }
-
-        .problem-phone-top {
-            background: #E0E0E0;
-            padding: 24px 14px 10px;
-            font-size: 0.7rem;
-            color: #999;
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .problem-phone-msgs {
-            padding: 12px 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .problem-msg {
-            padding: 10px 14px;
-            border-radius: 16px;
-            font-size: 0.8rem;
-            line-height: 1.4;
-            max-width: 85%;
-            animation: msgPulse 3s infinite;
-        }
-
-        .problem-msg.client {
-            background: #E9ECEF;
-            color: #1A1A2E;
-            border-bottom-left-radius: 4px;
-            align-self: flex-start;
-        }
-
-        .problem-msg.alert {
-            background: #FFEBEE;
-            color: #C62828;
-            border-bottom-left-radius: 4px;
-            align-self: flex-start;
-            font-weight: 500;
-        }
-
-        @keyframes msgPulse {
-            0%, 100% { box-shadow: none; }
-            50% { box-shadow: 0 0 0 3px rgba(255,107,53,0.15); }
-        }
-
-        /* Notification banners floating over phone */
-        .notif-float {
-            position: absolute;
-            background: #FFFFFF;
-            border-radius: 14px;
-            padding: 10px 14px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            color: #1A1A2E;
-            z-index: 3;
-            white-space: nowrap;
-        }
-
-        .notif-float.top {
-            top: -10px;
-            right: -30px;
-            animation: floatBounce 2.5s ease-in-out infinite;
-        }
-
-        .notif-float.bottom {
-            bottom: 40px;
-            left: -30px;
-            animation: floatBounce 2.5s ease-in-out infinite 0.5s;
-        }
-
-        .notif-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .notif-dot.red { background: #EF5350; }
-        .notif-dot.orange { background: #FF6B35; }
-
-        @keyframes floatBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-6px); }
-        }
-
-        /* Right side: Camera roll illustration */
-        .camera-roll-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .camera-roll {
-            width: 100%;
-            max-width: 320px;
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-            border: 1px solid #EAECF0;
-        }
-
-        .camera-roll-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-
-        .camera-roll-header span {
-            font-size: 0.82rem;
-            font-weight: 700;
-            color: #1A1A2E;
-        }
-
-        .camera-roll-count {
-            font-size: 0.7rem;
-            color: #999;
-        }
-
-        .camera-roll-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 6px;
-        }
-
-        .cam-thumb {
-            height: 60px;
-            border-radius: 6px;
-            position: relative;
-        }
-
-        .cam-thumb:nth-child(1) { background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=300') center/cover no-repeat; }
-        .cam-thumb:nth-child(2) { background: url('https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?w=300') center/cover no-repeat; }
-        .cam-thumb:nth-child(3) { background: url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=300') center/cover no-repeat; }
-        .cam-thumb:nth-child(4) { background: url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=300') center/cover no-repeat; }
-        .cam-thumb:nth-child(5) { background: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=300') center/cover no-repeat; }
-        .cam-thumb:nth-child(6) { background: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=300') center/cover no-repeat; }
-        .cam-thumb:nth-child(7) { background: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=300') center/cover no-repeat; }
-        .cam-thumb:nth-child(8) { background: url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=300') center/cover no-repeat; }
-        .cam-thumb:nth-child(9) { background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=300') center/cover no-repeat; }
-
-        .cam-thumb.highlight {
-            outline: 3px solid #FF6B35;
-            outline-offset: -3px;
-        }
-
-        .cam-thumb.highlight::after {
-            content: '?';
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,107,53,0.3);
-            color: #FFFFFF;
-            font-weight: 800;
-            font-size: 1.1rem;
-            border-radius: 6px;
-        }
-
-        .frustrated-caption {
-            font-size: 0.85rem;
-            color: #777;
-            text-align: center;
-            font-style: italic;
-        }
-
-        .problem-caption {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            color: #555;
-            line-height: 1.7;
-        }
-
-        .problem-caption strong {
-            color: #1A1A2E;
-        }
-
-        /* ========== SOLUTION SECTION ========== */
-        .solution-section {
-            padding: 90px 0;
-        }
-
-        .solution-section .container {
-            text-align: center;
-        }
-
-        .solution-headline {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 2.4rem;
-            color: #1A1A2E;
-            margin-bottom: 12px;
-            line-height: 1.15;
-        }
-
-        .solution-headline .highlight { color: #FF6B35; }
-
-        .solution-sub {
-            font-size: 1.05rem;
-            color: #777;
-            margin-bottom: 48px;
-        }
-
-        .solution-layout {
-            display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
-            gap: 56px;
-            align-items: center;
-            text-align: left;
-        }
-
-        /* Large invoice mockup */
-        .invoice-mockup-large {
-            background: #FFFFFF;
-            border: 1px solid #EAECF0;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-        }
-
-        .inv-mock-header {
-            background: #004E89;
-            padding: 18px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .inv-mock-logo {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: #FFFFFF;
-        }
-
-        .inv-mock-badge {
-            background: #E8F5E9;
-            color: #2E7D32;
-            font-size: 0.68rem;
-            font-weight: 700;
-            padding: 3px 10px;
-            border-radius: 8px;
-        }
-
-        .inv-mock-body { padding: 24px; }
-
-        .inv-mock-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 16px;
-        }
-
-        .inv-mock-field label {
-            display: block;
-            font-size: 0.68rem;
-            font-weight: 700;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 3px;
-        }
-
-        .inv-mock-field span {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #1A1A2E;
-        }
-
-        .inv-mock-field .amount {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: #004E89;
-        }
-
-        .inv-mock-photos-label {
-            font-size: 0.72rem;
-            font-weight: 700;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 10px;
-        }
-
-        .inv-mock-photos {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .inv-mock-photo {
-            height: 110px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            color: #FFFFFF;
-        }
-
-        .inv-mock-photo.before {
-            background: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400') center/cover no-repeat;
-        }
-
-        .inv-mock-photo.after {
-            background: url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=400') center/cover no-repeat;
-        }
-
-        .inv-mock-photo .label {
-            background: rgba(0,0,0,0.35);
-            padding: 2px 10px;
-            border-radius: 4px;
-            font-size: 0.65rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .inv-mock-photo .icon-placeholder {
-            width: 28px;
-            height: 28px;
-            border: 2px solid rgba(255,255,255,0.6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .inv-mock-photo .icon-placeholder svg {
-            width: 14px;
-            height: 14px;
-            color: rgba(255,255,255,0.8);
-        }
-
-        .inv-mock-line-items {
-            border-top: 1px solid #F0F0F0;
-            padding-top: 16px;
-        }
-
-        .inv-mock-line {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            padding: 5px 0;
-            color: #555;
-        }
-
-        .inv-mock-line.total {
-            font-weight: 700;
-            color: #1A1A2E;
-            border-top: 1px solid #F0F0F0;
-            padding-top: 10px;
-            margin-top: 6px;
-            font-size: 0.95rem;
-        }
-
-        /* Solution steps */
-        .solution-steps {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-
-        .solution-step {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-        }
-
-        .step-number {
-            width: 44px;
-            height: 44px;
-            background: #FFF0EB;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .step-number svg {
-            width: 20px;
-            height: 20px;
-            color: #FF6B35;
-        }
-
-        .step-text h3 {
-            font-family: 'DM Sans', sans-serif;
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: #1A1A2E;
-            margin-bottom: 4px;
-        }
-
-        .step-text p {
-            font-size: 0.9rem;
-            color: #777;
-            line-height: 1.5;
-        }
-
-        .solution-arrow {
-            text-align: center;
-            margin-top: 8px;
-        }
-
-        .solution-arrow svg {
-            color: #FF6B35;
-            width: 24px;
-            height: 24px;
-            opacity: 0.4;
-        }
-
-        /* ========== FEATURES SECTION ========== */
-        .features-section {
-            padding: 80px 0;
-            background: #F8F9FB;
-        }
-
-        .features-section .section-heading {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 2rem;
-            color: #1A1A2E;
-            text-align: center;
-            margin-bottom: 48px;
-        }
-
-        .feature-cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-
-        .feature-card {
-            background: #FFFFFF;
-            border: 1px solid #EAECF0;
-            border-radius: 12px;
-            padding: 28px 24px;
-            transition: box-shadow 0.2s;
-        }
-
-        .feature-card:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        }
-
-        .feature-card-icon {
-            width: 44px;
-            height: 44px;
-            background: #FFF0EB;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 16px;
-        }
-
-        .feature-card-icon svg { color: #FF6B35; width: 20px; height: 20px; }
-
-        .feature-card h3 {
-            font-weight: 700;
-            font-size: 1rem;
-            color: #1A1A2E;
-            margin-bottom: 6px;
-        }
-
-        .feature-card p {
-            font-size: 0.85rem;
-            color: #777;
-            line-height: 1.5;
-        }
-
-        /* ========== FORM SECTION ========== */
-        .form-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #004E89 0%, #002B4F 100%);
-            position: relative;
-        }
-
-        .form-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
-            background-size: 28px 28px;
-        }
-
-        .form-section .container {
-            max-width: 560px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .form-wrapper {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 40px 36px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-        }
-
-        .form-wrapper h2 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 800;
-            font-size: 1.5rem;
-            margin-bottom: 6px;
-            color: #1A1A2E;
-            text-align: center;
-        }
-
-        .form-wrapper .form-sub {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 28px;
-            text-align: center;
-        }
-
-        .form-group { margin-bottom: 14px; }
-
-        .form-group label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .form-group label .required { color: #FF6B35; }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 12px 14px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 0.95rem;
-            border: 2px solid #E0E0E0;
-            border-radius: 10px;
-            background: #FFFFFF;
-            color: #1A1A2E;
-            transition: border-color 0.2s;
-            appearance: none;
-            -webkit-appearance: none;
-        }
-
-        .form-group select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23555' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 14px center;
-            padding-right: 36px;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: #FF6B35;
-        }
-
-        .form-group input::placeholder { color: #AAA; }
-
-        .form-group .error-msg {
-            font-size: 0.78rem;
-            color: #D32F2F;
-            margin-top: 4px;
-            display: none;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 14px;
-            font-family: 'DM Sans', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            color: #FFFFFF;
-            background: #FF6B35;
-            border: none;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background 0.2s, transform 0.1s;
-            margin-top: 6px;
-        }
-
-        .submit-btn:hover { background: #E55A28; }
-        .submit-btn:active { transform: scale(0.98); }
-
-        .privacy-note {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #999;
-            margin-top: 12px;
-        }
-
-
-        /* ========== SUCCESS MESSAGE ========== */
-        .success-message {
-            display: none;
-            background: #E8F5E9;
-            border: 2px solid #2E7D32;
-            border-radius: 12px;
-            padding: 32px 28px;
-            text-align: center;
-        }
-
-        .success-message .check-icon {
-            font-size: 3rem;
-            margin-bottom: 12px;
-            color: #2E7D32;
-        }
-
-        .success-message h2 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            font-weight: 700;
-            font-size: 1.3rem;
-            color: #2E7D32;
-            margin-bottom: 8px;
-        }
-
-        .success-message p {
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        /* ========== FOOTER ========== */
-        .site-footer {
-            text-align: center;
-            padding: 32px 0;
-            border-top: 1px solid #EAECF0;
-        }
-
-        .site-footer p {
-            font-size: 0.78rem;
-            color: #AAA;
-        }
-
-        /* ========== RESPONSIVE ========== */
-        @media (max-width: 768px) {
-            .hero { padding: 48px 0 64px; }
-
-            .hero .container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                text-align: center;
-            }
-
-            .hero-text h1 { font-size: 2rem; }
-            .hero-text .subtitle { margin: 0 auto 28px; }
-            .hero-social-proof { justify-content: center; }
-            .phone-mockup { width: 260px; }
-
-            .problem-split {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-
-            .notif-float.top { right: -10px; }
-            .notif-float.bottom { left: -10px; }
-
-            .solution-headline { font-size: 1.8rem; }
-
-            .solution-layout {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .feature-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .features-section .section-heading {
-                font-size: 1.6rem;
-            }
-
-            .form-wrapper {
-                padding: 32px 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-text h1 { font-size: 1.7rem; }
-            .phone-mockup { width: 240px; }
-            .container { padding: 0 16px; }
-            .solution-headline { font-size: 1.5rem; }
-            .problem-phone { width: 190px; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CaptureNInvoice — Proof-of-Work Invoicing for Service Businesses</title>
+  <meta name="description" content="Document completed work, send professional invoices, and get paid faster. The proof-of-work invoicing platform built for cleaners, landscapers, painters, handymen, and service professionals.">
+  <meta name="keywords" content="proof of work invoicing, contractor invoicing software, service business invoicing, field service invoicing, small business invoicing, invoice payment solutions">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="CaptureNInvoice — Proof-of-Work Invoicing for Service Businesses">
+  <meta property="og:description" content="Document completed work, send professional invoices, and get paid faster.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ─────────────────────────────────────────────────── */
+    :root {
+      --bg:          #FFFFFF;
+      --bg-card:     #F8FAFC;
+      --bg-card-2:   #EEF2F7;
+      --border:      rgba(0,0,0,0.08);
+      --border-hi:   rgba(0,0,0,0.13);
+      --orange:      #FF5C1A;
+      --orange-light:#FF7A3D;
+      --orange-dim:  rgba(255,92,26,0.1);
+      --amber:       #FFAD3B;
+      --green:       #16A34A;
+      --green-dim:   rgba(22,163,74,0.1);
+      --text:        #0F172A;
+      --text-2:      #475569;
+      --text-3:      #94A3B8;
+      --font-display:'Bricolage Grotesque', sans-serif;
+      --font-body:   'DM Sans', sans-serif;
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   20px;
+      --radius-xl:   28px;
+      --shadow-card: 0 1px 0 var(--border), 0 8px 32px rgba(0,0,0,0.08);
+      --max-w:       1120px;
+      --nav-h:       68px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 16px;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; }
+    ul { list-style: none; }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── UTILITY ────────────────────────────────────────────────── */
+    .pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .pill--orange { background: var(--orange-dim); color: var(--orange-light); border: 1px solid rgba(255,92,26,0.25); }
+    .pill--green  { background: var(--green-dim);  color: var(--green);        border: 1px solid rgba(34,197,94,0.2); }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 26px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 15px; font-weight: 500;
+      letter-spacing: 0.01em;
+      cursor: pointer; border: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, color 0.18s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--primary {
+      background: var(--orange);
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(255,92,26,0.35);
+    }
+    .btn--primary:hover { background: var(--orange-light); box-shadow: 0 6px 32px rgba(255,92,26,0.45); }
+    .btn--ghost {
+      background: transparent;
+      color: var(--text-2);
+      border: 1px solid var(--border-hi);
+    }
+    .btn--ghost:hover { color: var(--text); border-color: rgba(0,0,0,0.2); background: rgba(0,0,0,0.04); }
+    .btn--sm { padding: 9px 18px; font-size: 13px; }
+
+    .section-label {
+      font-family: var(--font-body);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--orange);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+
+    /* ─── NAV ────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      transition: background 0.3s ease, border-bottom 0.3s ease, backdrop-filter 0.3s ease;
+    }
+    .nav.scrolled {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__inner {
+      display: flex; align-items: center;
+      width: 100%; max-width: var(--max-w);
+      margin: 0 auto; padding: 0 24px;
+      gap: 32px;
+    }
+    .nav__logo {
+      font-family: var(--font-display);
+      font-size: 17px; font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      display: flex; align-items: center; gap: 8px;
+      flex-shrink: 0;
+    }
+    .nav__links {
+      display: flex; align-items: center; gap: 6px;
+      margin-left: 16px;
+    }
+    .nav__links a {
+      font-size: 14px; font-weight: 500;
+      color: var(--text-2);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: color 0.15s, background 0.15s;
+    }
+    .nav__links a:hover { color: var(--text); background: rgba(0,0,0,0.05); }
+    .nav__actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+    .nav__hamburger {
+      display: none; flex-direction: column; gap: 4px;
+      cursor: pointer; padding: 6px; border: none; background: none;
+    }
+    .nav__hamburger span { display: block; width: 20px; height: 2px; background: var(--text-2); border-radius: 2px; transition: all 0.2s; }
+
+    /* Mobile nav */
+    .nav__mobile {
+      display: none;
+      position: fixed; top: var(--nav-h); left: 0; right: 0;
+      background: rgba(255,255,255,0.98); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px 28px;
+      z-index: 99;
+    }
+    .nav__mobile.open { display: block; }
+    .nav__mobile a {
+      display: block; padding: 12px 0;
+      font-size: 16px; font-weight: 500;
+      color: var(--text-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav__mobile a:hover { color: var(--text); }
+    .nav__mobile-actions { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; }
+
+    /* ─── HERO ───────────────────────────────────────────────────── */
+    .hero {
+      position: relative; overflow: hidden;
+      padding: calc(var(--nav-h) + 80px) 0 100px;
+      min-height: 100vh;
+      display: flex; align-items: center;
+    }
+
+    /* Grid background */
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 50px 50px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 30%, transparent 80%);
+    }
+
+    /* Glow orb */
+    .hero::after {
+      content: '';
+      position: absolute; top: -10%; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 500px;
+      background: radial-gradient(ellipse, rgba(255,92,26,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__inner {
+      position: relative; z-index: 1;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+
+    .hero__eyebrow { margin-bottom: 20px; }
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: clamp(38px, 5.5vw, 62px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 22px;
+    }
+    .hero__title span { color: var(--orange); }
+
+    .hero__sub {
+      font-size: 18px; font-weight: 400;
+      color: var(--text-2); line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+    .hero__actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+
+    .hero__trust {
+      margin-top: 40px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero__trust-avatars { display: flex; }
+    .hero__trust-avatars span {
+      width: 32px; height: 32px;
+      border-radius: 50%; border: 2px solid var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+      margin-left: -8px;
+    }
+    .hero__trust-avatars span:first-child { margin-left: 0; }
+    .hero__trust-text { font-size: 13px; color: var(--text-2); }
+    .hero__trust-text strong { color: var(--text); }
+
+    /* ─── HERO MOCKUP ────────────────────────────────────────────── */
+    .hero__visual {
+      position: relative;
+    }
+    .hero__mockup-wrap {
+      position: relative;
+      transform: perspective(1000px) rotateY(-8deg) rotateX(4deg);
+      transform-style: preserve-3d;
+      transition: transform 0.4s ease;
+    }
+    .hero__mockup-wrap:hover {
+      transform: perspective(1000px) rotateY(-3deg) rotateX(2deg);
+    }
+
+    .invoice-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-hi);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.03), 0 40px 80px rgba(0,0,0,0.6);
+    }
+
+    .invoice-card__header {
+      background: var(--bg-card-2);
+      padding: 18px 22px;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+    .invoice-card__dots { display: flex; gap: 6px; }
+    .invoice-card__dots span {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .invoice-card__dots span:nth-child(1) { background: #FF5F57; }
+    .invoice-card__dots span:nth-child(2) { background: #FFBD2E; }
+    .invoice-card__dots span:nth-child(3) { background: #28CA41; }
+
+    .invoice-card__url {
+      background: rgba(0,0,0,0.04);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 14px;
+      font-size: 11px; color: var(--text-3);
+      font-family: monospace;
+    }
+
+    .invoice-card__body { padding: 24px 22px; }
+
+    .inv-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      margin-bottom: 18px;
+    }
+    .inv-logo {
+      font-family: var(--font-display);
+      font-size: 14px; font-weight: 800;
+      color: var(--text);
+    }
+    .inv-logo span { color: var(--orange); }
+    .inv-badge {
+      display: inline-flex; align-items: center; gap: 4px;
+      background: var(--green-dim); color: var(--green);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 6px;
+      padding: 3px 10px; font-size: 11px; font-weight: 700;
+    }
+
+    .inv-title {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .inv-meta { font-size: 12px; color: var(--text-3); margin-bottom: 16px; }
+
+    /* Proof photos row */
+    .inv-photos {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 6px; margin-bottom: 16px;
+    }
+    .inv-photo {
+      aspect-ratio: 4/3;
+      border-radius: 8px; overflow: hidden;
+      position: relative;
+    }
+    .inv-photo-before {
+      background: linear-gradient(135deg, #1a2a1a 0%, #2d4a2d 100%);
+    }
+    .inv-photo-after {
+      background: linear-gradient(135deg, #1a2030 0%, #2a3550 100%);
+    }
+    .inv-photo-receipt {
+      background: linear-gradient(135deg, #301a10 0%, #5a2e10 100%);
+    }
+    .inv-photo-label {
+      position: absolute; bottom: 4px; left: 4px;
+      background: rgba(0,0,0,0.6); color: #fff;
+      font-size: 9px; font-weight: 600;
+      padding: 2px 6px; border-radius: 4px;
+    }
+    /* mini icon in photo */
+    .inv-photo-icon {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+
+    .inv-items { margin-bottom: 14px; }
+    .inv-item {
+      display: flex; justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+    .inv-item:last-child { border-bottom: none; }
+    .inv-item-name { color: var(--text-2); }
+    .inv-item-price { font-weight: 600; }
+
+    .inv-total {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 16px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,92,26,0.2);
+      border-radius: 10px;
+      margin-bottom: 14px;
+    }
+    .inv-total-label { font-size: 12px; color: var(--text-2); font-weight: 600; }
+    .inv-total-amount {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 800; color: var(--orange);
+    }
+
+    .inv-pay-btn {
+      width: 100%;
+      background: var(--orange);
+      color: #fff;
+      border: none; border-radius: 10px;
+      padding: 12px;
+      font-family: var(--font-body);
+      font-size: 13px; font-weight: 700;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
+
+    /* Floating badge */
+    .hero__badge {
+      position: absolute;
+      bottom: -20px; left: -30px;
+      background: var(--bg-card-2);
+      border: 1px solid var(--border-hi);
+      border-radius: 14px;
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+      box-shadow: var(--shadow-card);
+      animation: float 4s ease-in-out infinite;
+    }
+    .hero__badge-icon {
+      width: 36px; height: 36px;
+      background: var(--green-dim);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .hero__badge-text { font-size: 12px; }
+    .hero__badge-text strong { display: block; font-size: 15px; font-weight: 700; color: var(--green); }
+    .hero__badge-text span { color: var(--text-2); }
+
+    .hero__badge-2 {
+      position: absolute; top: -15px; right: -20px;
+      background: var(--bg-card-2);
+      border: 1px solid var(--border-hi);
+      border-radius: 14px;
+      padding: 12px 16px;
+      display: flex; align-items: center; gap: 10px;
+      box-shadow: var(--shadow-card);
+      animation: float 4s ease-in-out infinite 1.5s;
+    }
+    .hero__badge-2-icon {
+      width: 30px; height: 30px;
+      background: var(--orange-dim);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .hero__badge-2-text { font-size: 11px; color: var(--text-2); }
+    .hero__badge-2-text strong { display: block; font-size: 13px; font-weight: 700; color: var(--text); }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ─── LOGOS BAR ──────────────────────────────────────────────── */
+    .logos-bar {
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .logos-bar__inner {
+      display: flex; align-items: center; gap: 32px;
+      overflow-x: auto; scrollbar-width: none;
+    }
+    .logos-bar__inner::-webkit-scrollbar { display: none; }
+    .logos-bar__label {
+      font-size: 12px; font-weight: 600;
+      color: var(--text-3); white-space: nowrap;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      flex-shrink: 0;
+    }
+    .logos-bar__items {
+      display: flex; align-items: center; gap: 36px;
+      flex: 1;
+    }
+    .logo-industry {
+      display: flex; align-items: center; gap: 8px;
+      white-space: nowrap;
+      font-size: 13px; font-weight: 600;
+      color: var(--text-3);
+      flex-shrink: 0;
+    }
+    .logo-industry span { font-size: 18px; }
+
+    /* ─── STATS ──────────────────────────────────────────────────── */
+    .stats {
+      padding: 80px 0;
+    }
+    .stats__grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .stat-item {
+      background: var(--bg-card);
+      padding: 36px 32px;
+    }
+    .stat-item__num {
+      font-family: var(--font-display);
+      font-size: 42px; font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-item__num span { color: var(--orange); }
+    .stat-item__label { font-size: 14px; color: var(--text-2); }
+
+    /* ─── HOW IT WORKS ───────────────────────────────────────────── */
+    .how {
+      padding: 100px 0;
+      position: relative;
+    }
+    .how__head { text-align: center; margin-bottom: 70px; }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 800; line-height: 1.12;
+      letter-spacing: -0.025em;
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 17px; font-weight: 400;
+      color: var(--text-2); line-height: 1.75;
+      max-width: 500px; margin: 0 auto;
+    }
+
+    .how__steps {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    /* connector line */
+    .how__steps::before {
+      content: '';
+      position: absolute;
+      top: 52px; left: calc(33.33% - 30px); right: calc(33.33% - 30px);
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+      z-index: 0;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      position: relative; z-index: 1;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .step-card:hover { border-color: var(--border-hi); transform: translateY(-3px); }
+
+    .step-card__num {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 20px;
+    }
+
+    .step-card__icon {
+      width: 52px; height: 52px;
+      background: var(--bg-card-2);
+      border: 1px solid var(--border-hi);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .step-card__title {
+      font-family: var(--font-display);
+      font-size: 20px; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .step-card__desc { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+
+    /* ─── WHY SECTION ────────────────────────────────────────────── */
+    .why {
+      padding: 100px 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .why__inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .why__left { }
+    .why__label { margin-bottom: 16px; }
+    .why__title { margin-bottom: 16px; }
+    .why__desc { font-size: 16px; color: var(--text-2); margin-bottom: 32px; line-height: 1.7; }
+
+    .why__benefits { display: flex; flex-direction: column; gap: 14px; }
+    .why-benefit {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .why-benefit__check {
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: var(--green-dim);
+      border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      margin-top: 2px;
+    }
+    .why-benefit__text { font-size: 15px; color: var(--text-2); }
+    .why-benefit__text strong { color: var(--text); font-weight: 600; display: block; margin-bottom: 2px; }
+
+    .why__right { position: relative; }
+
+    /* Dashboard mock */
+    .dash-mock {
+      background: var(--bg);
+      border: 1px solid var(--border-hi);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .dash-mock__header {
+      background: var(--bg-card-2);
+      padding: 14px 18px;
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .dash-mock__logo {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 800;
+    }
+    .dash-mock__logo span { color: var(--orange); }
+    .dash-mock__tab {
+      font-size: 12px; font-weight: 600;
+      color: var(--text-3);
+      padding: 4px 10px; border-radius: 6px;
+    }
+    .dash-mock__tab.active { color: var(--text); background: var(--border); }
+
+    .dash-mock__body { padding: 18px; }
+
+    .dash-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+    .dash-kpi {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .dash-kpi__label { font-size: 10px; color: var(--text-3); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+    .dash-kpi__val { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+    .dash-kpi__val.green { color: var(--green); }
+    .dash-kpi__val.orange { color: var(--orange); }
+    .dash-kpi__trend { font-size: 10px; color: var(--green); margin-top: 2px; }
+
+    .dash-chart { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; margin-bottom: 14px; }
+    .dash-chart__title { font-size: 11px; font-weight: 700; color: var(--text-2); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .dash-bars { display: flex; align-items: flex-end; gap: 6px; height: 60px; }
+    .dash-bar { flex: 1; background: var(--orange-dim); border-radius: 4px 4px 0 0; transition: background 0.2s; }
+    .dash-bar:hover { background: var(--orange); }
+    .dash-bar.active { background: var(--orange); }
+
+    .dash-invoices { display: flex; flex-direction: column; gap: 8px; }
+    .dash-invoice {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .dash-invoice__left { display: flex; align-items: center; gap: 10px; }
+    .dash-invoice__avatar {
+      width: 28px; height: 28px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .dash-invoice__name { font-size: 12px; font-weight: 600; }
+    .dash-invoice__date { font-size: 10px; color: var(--text-3); }
+    .dash-invoice__right { display: flex; align-items: center; gap: 10px; }
+    .dash-invoice__amount { font-size: 13px; font-weight: 700; }
+    .dash-invoice__status {
+      font-size: 10px; font-weight: 600;
+      padding: 2px 8px; border-radius: 4px;
+    }
+    .dash-invoice__status.paid { background: var(--green-dim); color: var(--green); }
+    .dash-invoice__status.sent { background: var(--orange-dim); color: var(--orange); }
+
+    /* ─── FEATURES ───────────────────────────────────────────────── */
+    .features { padding: 100px 0; }
+    .features__head { text-align: center; margin-bottom: 60px; }
+    .features__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .feat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .feat-card:hover {
+      border-color: rgba(255,92,26,0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,92,26,0.1);
+    }
+    .feat-card__icon {
+      width: 46px; height: 46px;
+      background: var(--orange-dim);
+      border: 1px solid rgba(255,92,26,0.2);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+    .feat-card__title { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 8px; }
+    .feat-card__desc { font-size: 14px; color: var(--text-2); line-height: 1.65; }
+
+    /* ─── WHO IT'S FOR ───────────────────────────────────────────── */
+    .who {
+      padding: 100px 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .who__head { text-align: center; margin-bottom: 56px; }
+    .who__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 40px; }
+
+    .who-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 26px 24px;
+      display: flex; align-items: center; gap: 16px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .who-card:hover { border-color: var(--border-hi); transform: translateY(-2px); }
+    .who-card__icon {
+      font-size: 32px; flex-shrink: 0;
+      width: 54px; height: 54px;
+      background: var(--bg-card-2);
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .who-card__name { font-family: var(--font-display); font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .who-card__desc { font-size: 13px; color: var(--text-2); }
+
+    .who__cta { text-align: center; }
+    .who__cta-text { font-size: 15px; color: var(--text-2); margin-bottom: 20px; }
+
+    /* ─── TESTIMONIALS ───────────────────────────────────────────── */
+    .testimonials { padding: 100px 0; }
+    .testimonials__head { text-align: center; margin-bottom: 60px; }
+    .testimonials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    .testi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.2s;
+    }
+    .testi-card:hover { border-color: var(--border-hi); }
+
+    .testi-card__stars {
+      display: flex; gap: 3px;
+      margin-bottom: 16px;
+      font-size: 14px;
+    }
+    .testi-card__quote {
+      font-size: 15px; color: var(--text-2);
+      line-height: 1.7; flex: 1;
+      margin-bottom: 20px;
+    }
+    .testi-card__author {
+      display: flex; align-items: center; gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+    .testi-card__avatar {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .testi-card__name { font-size: 14px; font-weight: 700; }
+    .testi-card__role { font-size: 12px; color: var(--text-3); }
+
+    /* ─── PRICING ────────────────────────────────────────────────── */
+    .pricing {
+      padding: 100px 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .pricing__head { text-align: center; margin-bottom: 60px; }
+    .pricing__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 780px; margin: 0 auto; }
+
+    .plan-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      position: relative;
+      transition: transform 0.2s;
+    }
+    .plan-card:hover { transform: translateY(-4px); }
+
+    .plan-card--featured {
+      border-color: var(--orange);
+      box-shadow: 0 0 0 1px var(--orange), 0 20px 60px rgba(255,92,26,0.15);
+    }
+    .plan-card__popular {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      background: var(--orange); color: #fff;
+      font-size: 11px; font-weight: 700;
+      padding: 4px 14px; border-radius: 999px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .plan-card__name { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .plan-card__price {
+      font-family: var(--font-display);
+      font-size: 40px; font-weight: 800;
+      line-height: 1; margin-bottom: 6px;
+    }
+    .plan-card__period { font-size: 13px; color: var(--text-3); margin-bottom: 20px; }
+    .plan-card__desc { font-size: 14px; color: var(--text-2); margin-bottom: 24px; line-height: 1.6; }
+
+    .plan-card__features { display: flex; flex-direction: column; gap: 11px; margin-bottom: 28px; }
+    .plan-feat {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; color: var(--text-2);
+    }
+    .plan-feat::before {
+      content: '✓';
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 18px; height: 18px;
+      background: var(--green-dim); color: var(--green);
+      border-radius: 4px; font-size: 11px; font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ─── FAQ ────────────────────────────────────────────────────── */
+    .faq { padding: 100px 0; }
+    .faq__head { text-align: center; margin-bottom: 60px; }
+    .faq__list { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .faq-item__q {
+      width: 100%; background: none; border: none;
+      padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: 15px; font-weight: 600;
+      color: var(--text);
+      transition: color 0.15s;
+    }
+    .faq-item__q:hover { color: var(--orange); }
+    .faq-item__arrow {
+      width: 20px; height: 20px; flex-shrink: 0;
+      border: 1px solid var(--border-hi);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; color: var(--text-3);
+      transition: transform 0.25s, background 0.2s;
+    }
+    .faq-item.open .faq-item__arrow { transform: rotate(180deg); background: var(--orange); border-color: var(--orange); color: #fff; }
+    .faq-item__a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+    }
+    .faq-item.open .faq-item__a { max-height: 200px; }
+    .faq-item__a-inner { padding: 0 24px 20px; font-size: 14px; color: var(--text-2); line-height: 1.7; }
+
+    /* ─── FINAL CTA ──────────────────────────────────────────────── */
+    .final-cta {
+      padding: 120px 0;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .final-cta::before {
+      content: '';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 800px; height: 400px;
+      background: radial-gradient(ellipse, rgba(255,92,26,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .final-cta__inner { position: relative; z-index: 1; }
+    .final-cta__title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+      max-width: 600px; margin: 0 auto 18px;
+    }
+    .final-cta__title span { color: var(--orange); }
+    .final-cta__sub {
+      font-size: 17px; color: var(--text-2);
+      max-width: 440px; margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+    .final-cta__actions { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .final-cta__note { margin-top: 16px; font-size: 12px; color: var(--text-3); }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    .footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border);
+    }
+    .footer__top {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer__brand { }
+    .footer__logo {
+      font-family: var(--font-display);
+      font-size: 18px; font-weight: 800;
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 14px;
+    }
+    .footer__tagline { font-size: 14px; color: var(--text-3); line-height: 1.65; max-width: 220px; }
+
+    .footer__col-title { font-family: var(--font-display); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-3); margin-bottom: 16px; }
+    .footer__links { display: flex; flex-direction: column; gap: 10px; }
+    .footer__links a { font-size: 14px; color: var(--text-2); transition: color 0.15s; }
+    .footer__links a:hover { color: var(--text); }
+
+    .footer__bottom {
+      padding-top: 32px; border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer__copy { font-size: 13px; color: var(--text-3); }
+    .footer__legal { display: flex; gap: 20px; }
+    .footer__legal a { font-size: 13px; color: var(--text-3); transition: color 0.15s; }
+    .footer__legal a:hover { color: var(--text-2); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .nav__links, .nav__actions { display: none; }
+      .nav__hamburger { display: flex; }
+
+      .hero__inner { grid-template-columns: 1fr; gap: 56px; }
+      .hero__visual { display: none; }
+      .hero { min-height: auto; padding: calc(var(--nav-h) + 60px) 0 80px; }
+      .hero__sub { max-width: 100%; }
+
+      .stats__grid { grid-template-columns: repeat(2, 1fr); }
+      .how__steps { grid-template-columns: 1fr; }
+      .how__steps::before { display: none; }
+      .why__inner { grid-template-columns: 1fr; gap: 48px; }
+      .features__grid { grid-template-columns: repeat(2, 1fr); }
+      .who__grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials__grid { grid-template-columns: 1fr; }
+      .pricing__grid { grid-template-columns: 1fr; max-width: 420px; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .stats__grid { grid-template-columns: 1fr 1fr; }
+      .features__grid { grid-template-columns: 1fr; }
+      .who__grid { grid-template-columns: 1fr; }
+      .footer__top { grid-template-columns: 1fr; }
+      .logos-bar__items { gap: 24px; }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container">
-            <div class="logo">CaptureN<span>Invoice</span></div>
-            <div class="badge">Free</div>
+
+  <!-- ────────────────────── NAV ────────────────────────────────── -->
+  <nav class="nav" id="mainNav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <svg width="32" height="32" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+          <defs>
+            <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#FFD23F;stop-opacity:1"/>
+            </linearGradient>
+          </defs>
+          <rect x="2" y="2" width="30" height="30" rx="7" fill="url(#navGrad)"/>
+          <rect x="18" y="18" width="30" height="30" rx="7" fill="#004E89" opacity="0.95"/>
+        </svg>
+        CaptureNInvoice
+      </a>
+      <div class="nav__links">
+        <a href="#product">Product</a>
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#about">About</a>
+      </div>
+      <div class="nav__actions">
+        <a href="https://app.captureninvoice.com/sign-in" class="btn btn--ghost btn--sm">Sign In</a>
+        <a href="https://app.captureninvoice.com/register" class="btn btn--primary btn--sm">Get Started</a>
+      </div>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile nav -->
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="#product">Product</a>
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#about">About</a>
+    <div class="nav__mobile-actions">
+      <a href="https://app.captureninvoice.com/sign-in" class="btn btn--ghost">Sign In</a>
+      <a href="https://app.captureninvoice.com/register" class="btn btn--primary">Get Started →</a>
+    </div>
+  </div>
+
+  <!-- ────────────────────── HERO ───────────────────────────────── -->
+  <section class="hero" id="product">
+    <div class="container">
+      <div class="hero__inner">
+        <!-- Left copy -->
+        <div>
+          <div class="hero__eyebrow">
+            <span class="pill pill--orange">
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+              Proof-of-Work Invoicing Platform
+            </span>
+          </div>
+
+          <h1 class="hero__title reveal">
+            Proof-of-Work<br>Invoicing for<br>
+            <span>Service Businesses</span>
+          </h1>
+
+          <p class="hero__sub reveal" style="transition-delay:0.1s">
+            Document completed work, send professional invoices, get paid faster, and track revenue — all in one place built for the trades.
+          </p>
+
+          <div class="hero__actions reveal" style="transition-delay:0.2s">
+            <a href="https://app.captureninvoice.com/register" class="btn btn--primary">
+              Get Started Free
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a href="https://app.captureninvoice.com/sign-in" class="btn btn--ghost">Sign In</a>
+          </div>
+
         </div>
-    </header>
 
-    <!-- ==================== HERO ==================== -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-text">
-                <h1>Tired of customers asking if you finished? <span class="highlight">Send proof with every invoice.</span></h1>
-                <p class="subtitle">Attach before/after photos to every invoice. Customers see proof instantly. You get paid faster.</p>
-                <a href="#signupForm" class="hero-cta">Get Early Access &rarr;</a>
-                <div class="hero-social-proof">
-                    <span class="counter-label">Join other service pros already signed up</span>
+        <!-- Right: Product mockup -->
+        <div class="hero__visual reveal" style="transition-delay:0.2s">
+          <div class="hero__mockup-wrap">
+            <div class="invoice-card">
+              <div class="invoice-card__header">
+                <div class="invoice-card__dots">
+                  <span></span><span></span><span></span>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <div class="phone-mockup">
-                    <div class="phone-notch"></div>
-                    <div class="phone-screen">
-                        <div class="phone-status-bar">
-                            <span>9:41</span>
-                            <span>&#9679;&#9679;&#9679;&#9679;</span>
-                        </div>
-                        <div class="phone-app-header">Invoice #1042</div>
-                        <div class="phone-invoice">
-                            <div class="phone-invoice-header">
-                                <span class="phone-invoice-client">Sarah Johnson</span>
-                                <span class="phone-invoice-amount">$175.00</span>
-                            </div>
-                            <span class="phone-invoice-status">Sent</span>
-                            <div class="phone-invoice-label">Photo Proof</div>
-                            <div class="phone-photo-grid">
-                                <div class="phone-photo before"><span class="photo-label">Before</span></div>
-                                <div class="phone-photo after"><span class="photo-label">After</span></div>
-                            </div>
-                            <div class="phone-invoice-details">
-                                <div class="phone-invoice-row">
-                                    <span>Deep Clean - Kitchen</span>
-                                    <span>$125.00</span>
-                                </div>
-                                <div class="phone-invoice-row">
-                                    <span>Oven Detail</span>
-                                    <span>$50.00</span>
-                                </div>
-                                <div class="phone-invoice-row total">
-                                    <span>Total</span>
-                                    <span>$175.00</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="invoice-card__url">app.captureninvoice.com/invoice/INV-0042</div>
+                <div style="width:60px"></div>
+              </div>
+              <div class="invoice-card__body">
+                <div class="inv-top">
+                  <div class="inv-logo" style="display:flex;align-items:center;gap:6px">
+                  <svg width="20" height="20" viewBox="0 0 50 50" fill="none"><defs><linearGradient id="invGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FF6B35"/><stop offset="100%" style="stop-color:#FFD23F"/></linearGradient></defs><rect x="2" y="2" width="30" height="30" rx="7" fill="url(#invGrad)"/><rect x="18" y="18" width="30" height="30" rx="7" fill="#004E89" opacity="0.95"/></svg>
+                  CaptureNInvoice
                 </div>
+                  <div class="inv-badge">✓ PAID</div>
+                </div>
+
+                <div class="inv-title">Lawn Care &amp; Cleanup</div>
+                <div class="inv-meta">Invoice #INV-0042 · March 14, 2026 · Marcus Johnson</div>
+
+                <div class="inv-photos">
+                  <div class="inv-photo inv-photo-before">
+                    <div class="inv-photo-icon">🌿</div>
+                    <div class="inv-photo-label">BEFORE</div>
+                  </div>
+                  <div class="inv-photo inv-photo-after">
+                    <div class="inv-photo-icon">✨</div>
+                    <div class="inv-photo-label">AFTER</div>
+                  </div>
+                  <div class="inv-photo inv-photo-receipt">
+                    <div class="inv-photo-icon">📋</div>
+                    <div class="inv-photo-label">WORK LOG</div>
+                  </div>
+                </div>
+
+                <div class="inv-items">
+                  <div class="inv-item">
+                    <span class="inv-item-name">Lawn mowing &amp; edging</span>
+                    <span class="inv-item-price">$85.00</span>
+                  </div>
+                  <div class="inv-item">
+                    <span class="inv-item-name">Leaf removal (2 hrs)</span>
+                    <span class="inv-item-price">$60.00</span>
+                  </div>
+                  <div class="inv-item">
+                    <span class="inv-item-name">Shrub trimming</span>
+                    <span class="inv-item-price">$45.00</span>
+                  </div>
+                </div>
+
+                <div class="inv-total">
+                  <span class="inv-total-label">Total Due</span>
+                  <span class="inv-total-amount">$190.00</span>
+                </div>
+
+                <button class="inv-pay-btn" disabled>
+                  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M4.5 6.5l1.5 1.5 2.5-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Payment Received
+                </button>
+              </div>
             </div>
+
+            <!-- Floating badges -->
+            <div class="hero__badge">
+              <div class="hero__badge-icon">💸</div>
+              <div class="hero__badge-text">
+                <strong>$190 received</strong>
+                <span>2 hrs after sending</span>
+              </div>
+            </div>
+            <div class="hero__badge-2">
+              <div class="hero__badge-2-icon">📸</div>
+              <div class="hero__badge-2-text">
+                <strong>3 photos attached</strong>
+                <span>Proof of work included</span>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ==================== PROBLEM ==================== -->
-    <section class="problem-section">
-        <div class="container">
-            <div style="text-align: center;">
-                <div class="section-label orange">The Problem</div>
-            </div>
-
-            <div class="problem-split">
-                <!-- LEFT: Phone with interrupting texts -->
-                <div class="problem-phone-wrap">
-                    <div class="notif-float top">
-                        <span class="notif-dot red"></span>
-                        "Did you finish?"
-                    </div>
-                    <div class="problem-phone">
-                        <div class="problem-phone-screen">
-                            <div class="problem-phone-top">Messages</div>
-                            <div class="problem-phone-msgs">
-                                <div class="problem-msg client">Did you finish everything?</div>
-                                <div class="problem-msg client">Can you send me photos?</div>
-                                <div class="problem-msg alert">I need proof before I pay.</div>
-                                <div class="problem-msg client">Hello?? Are you there?</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="notif-float bottom">
-                        <span class="notif-dot orange"></span>
-                        "Send me photos"
-                    </div>
-                </div>
-
-                <!-- RIGHT: Camera roll frustration -->
-                <div class="camera-roll-wrap">
-                    <div class="camera-roll">
-                        <div class="camera-roll-header">
-                            <span>Camera Roll</span>
-                            <span class="camera-roll-count">847 photos</span>
-                        </div>
-                        <div class="camera-roll-grid">
-                            <div class="cam-thumb"></div>
-                            <div class="cam-thumb"></div>
-                            <div class="cam-thumb highlight"></div>
-                            <div class="cam-thumb"></div>
-                            <div class="cam-thumb highlight"></div>
-                            <div class="cam-thumb"></div>
-                            <div class="cam-thumb"></div>
-                            <div class="cam-thumb"></div>
-                            <div class="cam-thumb highlight"></div>
-                        </div>
-                    </div>
-                    <p class="frustrated-caption">Which ones were from Tuesday's job...?</p>
-                </div>
-            </div>
-
-            <p class="problem-caption">
-                You're elbow-deep in the next job when they hit you up asking for proof. Now you're <strong>scrolling through hundreds of photos</strong>, re-sending what you already took.
-            </p>
+  <!-- ────────────────────── LOGOS BAR ──────────────────────────── -->
+  <div class="logos-bar">
+    <div class="container">
+      <div class="logos-bar__inner">
+        <span class="logos-bar__label">Built for</span>
+        <div class="logos-bar__items">
+          <div class="logo-industry"><span>🧹</span> Cleaners</div>
+          <div class="logo-industry"><span>🌿</span> Landscapers</div>
+          <div class="logo-industry"><span>🎨</span> Painters</div>
+          <div class="logo-industry"><span>🔧</span> Handymen</div>
+          <div class="logo-industry"><span>🏠</span> Maintenance Pros</div>
+          <div class="logo-industry"><span>⚡</span> Electricians</div>
+          <div class="logo-industry"><span>🚿</span> Plumbers</div>
+          <div class="logo-industry"><span>🏗️</span> Contractors</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
 
-    <!-- ==================== SOLUTION ==================== -->
-    <section class="solution-section">
-        <div class="container">
-            <div class="section-label green" style="display: block; text-align: center;">The Solution</div>
-            <h2 class="solution-headline">Photos + Invoice = <span class="highlight">One Message. Done.</span></h2>
-            <p class="solution-sub">No more separate texts. No more camera roll digging. Just proof, built right in.</p>
-
-            <div class="solution-layout">
-                <!-- Invoice mockup with embedded photos -->
-                <div class="invoice-mockup-large">
-                    <div class="inv-mock-header">
-                        <span class="inv-mock-logo">CaptureNInvoice</span>
-                        <span class="inv-mock-badge">Sent</span>
-                    </div>
-                    <div class="inv-mock-body">
-                        <div class="inv-mock-row">
-                            <div class="inv-mock-field">
-                                <label>Client</label>
-                                <span>Sarah Johnson</span>
-                            </div>
-                            <div class="inv-mock-field" style="text-align: right;">
-                                <label>Amount</label>
-                                <span class="amount">$175.00</span>
-                            </div>
-                        </div>
-                        <div class="inv-mock-photos-label">Photo Proof Attached</div>
-                        <div class="inv-mock-photos">
-                            <div class="inv-mock-photo before">
-                                <div class="icon-placeholder"><i data-lucide="image"></i></div>
-                                <span class="label">Before</span>
-                            </div>
-                            <div class="inv-mock-photo after">
-                                <div class="icon-placeholder"><i data-lucide="image"></i></div>
-                                <span class="label">After</span>
-                            </div>
-                        </div>
-                        <div class="inv-mock-line-items">
-                            <div class="inv-mock-line">
-                                <span>Deep Clean - Kitchen</span>
-                                <span>$125.00</span>
-                            </div>
-                            <div class="inv-mock-line">
-                                <span>Oven Detail</span>
-                                <span>$50.00</span>
-                            </div>
-                            <div class="inv-mock-line total">
-                                <span>Total Due</span>
-                                <span>$175.00</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4 Steps -->
-                <div class="solution-steps">
-                    <div class="solution-step">
-                        <div class="step-number"><i data-lucide="camera"></i></div>
-                        <div class="step-text">
-                            <h3>Snap photos as you work</h3>
-                            <p>Take before and after shots right from the app while you're on the job.</p>
-                        </div>
-                    </div>
-                    <div class="solution-step">
-                        <div class="step-number"><i data-lucide="paperclip"></i></div>
-                        <div class="step-text">
-                            <h3>Attach to invoice automatically</h3>
-                            <p>Photos link directly to the invoice. No digging through your camera roll.</p>
-                        </div>
-                    </div>
-                    <div class="solution-step">
-                        <div class="step-number"><i data-lucide="send"></i></div>
-                        <div class="step-text">
-                            <h3>Send to customer</h3>
-                            <p>One tap sends the invoice with photos via text or email. Done.</p>
-                        </div>
-                    </div>
-                    <div class="solution-step">
-                        <div class="step-number"><i data-lucide="circle-check"></i></div>
-                        <div class="step-text">
-                            <h3>Send proof. Get paid instantly</h3>
-                            <p>Customers see what was done and tap 'pay' directly on the invoice. No questions, no follow-ups.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <!-- ────────────────────── STATS ──────────────────────────────── -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats__grid">
+        <div class="stat-item reveal">
+          <div class="stat-item__num">2.4<span>hrs</span></div>
+          <div class="stat-item__label">Average time to payment</div>
         </div>
-    </section>
-
-    <!-- ==================== FEATURES ==================== -->
-    <section class="features-section">
-        <div class="container">
-            <h2 class="section-heading">More Built for Service Pros</h2>
-            <div class="feature-cards">
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i data-lucide="message-square"></i></div>
-                    <h3>Instant Send</h3>
-                    <p>Send invoice link directly to your client. They view it, they pay directly. Simple!</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i data-lucide="bell-ring"></i></div>
-                    <h3>Payment Notifications</h3>
-                    <p>Get notified the moment your invoice is viewed and when it's paid.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i data-lucide="dollar-sign"></i></div>
-                    <h3>Faster Payments</h3>
-                    <p>Clients pay quicker when they can see the work was done right.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i data-lucide="copy"></i></div>
-                    <h3>Duplicate Invoice</h3>
-                    <p>Repeat client? Copy last invoice and update photos in one tap.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i data-lucide="banknote"></i></div>
-                    <h3>Cash Tracking</h3>
-                    <p>Mark invoices as paid in cash so everything stays organized.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-card-icon"><i data-lucide="smartphone"></i></div>
-                    <h3>Works on Your Phone</h3>
-                    <p>Built mobile-first. Create and send invoices from the job site.</p>
-                </div>
-            </div>
+        <div class="stat-item reveal" style="transition-delay:0.1s">
+          <div class="stat-item__num">94<span>%</span></div>
+          <div class="stat-item__label">Reduction in billing disputes</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ==================== SIGNUP FORM ==================== -->
-    <section class="form-section" id="signupForm">
-        <div class="container">
-            <div class="form-wrapper" id="formWrapper">
-                <h2>Get Early Access</h2>
-                <p class="form-sub">Be the first to try CaptureNInvoice. It's free.</p>
-                <form id="earlyAccessForm" novalidate>
-                    <div class="form-group">
-                        <label for="email">Email Address <span class="required">*</span></label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                        <div class="error-msg" id="emailError">Please enter a valid email address.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="businessType">What type of business? <span class="required">*</span></label>
-                        <select id="businessType" name="businessType" required>
-                            <option value="" disabled selected>Select your business type</option>
-                            <option value="cleaning">Cleaning Service</option>
-                            <option value="pressure-washing">Pressure Washing</option>
-                            <option value="car-detailing">Car Detailing</option>
-                            <option value="handyman">Handyman / Repair</option>
-                            <option value="landscaping">Landscaping / Lawn Care</option>
-                            <option value="contractor">General Contractor</option>
-                            <option value="tutoring">Tutoring / Lessons</option>
-                            <option value="other">Other Service Business</option>
-                        </select>
-                        <div class="error-msg" id="businessError">Please select your business type.</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Your Name <span style="color:#AAA;">(optional)</span></label>
-                        <input type="text" id="name" name="name" placeholder="John Doe">
-                    </div>
-                    <button type="submit" class="submit-btn">Get Early Access</button>
-                    <p class="privacy-note">We respect your privacy. No spam, ever. Unsubscribe anytime.</p>
-                </form>
-            </div>
+  <!-- ────────────────────── HOW IT WORKS ───────────────────────── -->
+  <section class="how" id="how-it-works">
+    <div class="container">
+      <div class="how__head">
+        <div class="section-label reveal">How It Works</div>
+        <h2 class="section-title reveal" style="transition-delay:0.1s">Three steps to getting paid</h2>
+        <p class="section-sub reveal" style="transition-delay:0.2s">From job site to payment — the entire workflow in one platform designed for how you actually work.</p>
+      </div>
 
-            <!-- Success Message -->
-            <div class="success-message" id="successMessage">
-                <div class="check-icon">&#10003;</div>
-                <h2>You're on the list!</h2>
-                <p>Thanks for signing up. We'll notify you as soon as CaptureNInvoice is ready. You're going to love it.</p>
-            </div>
+      <div class="how__steps">
+        <div class="step-card reveal">
+          <div class="step-card__num">Step 01</div>
+          <div class="step-card__icon">📸</div>
+          <h3 class="step-card__title">Document the Work</h3>
+          <p class="step-card__desc">Capture before and after photos, log job notes, and record completed tasks directly on-site. Build undeniable proof as you work.</p>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2026 CaptureNInvoice. Built for service professionals who take pride in their work.</p>
+        <div class="step-card reveal" style="transition-delay:0.15s">
+          <div class="step-card__num">Step 02</div>
+          <div class="step-card__icon">📄</div>
+          <h3 class="step-card__title">Send the Invoice</h3>
+          <p class="step-card__desc">Generate a professional invoice with your proof-of-work photos attached. Send it instantly via link, email, or SMS — no printing needed.</p>
         </div>
-    </footer>
 
-    <script>
-        (function() {
-            // ========== INITIALIZE LUCIDE ICONS ==========
-            if (typeof lucide !== 'undefined') {
-                lucide.createIcons();
-            }
+        <div class="step-card reveal" style="transition-delay:0.3s">
+          <div class="step-card__num">Step 03</div>
+          <div class="step-card__icon">💳</div>
+          <h3 class="step-card__title">Get Paid Faster</h3>
+          <p class="step-card__desc">Clients pay directly from their invoice — no account required. Accept cards, bank transfers, and more. Funds land in your account quickly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            // ========== SIGNUP COUNTER ==========
-            const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbxrBK-jSQE1qWgUZQeIPGu09TYCwGVRH7w4Xov1vZzQN2c8Xektx2tBD0fu-WPZNLFx/exec';
-            const BASE_COUNT = 52;
-            var currentCount = BASE_COUNT;
+  <!-- ────────────────────── WHY SECTION ───────────────────────── -->
+  <section class="why" id="about">
+    <div class="container">
+      <div class="why__inner">
+        <div class="why__left">
+          <div class="why__label">
+            <div class="section-label reveal">Why CaptureNInvoice</div>
+          </div>
+          <h2 class="section-title why__title reveal" style="transition-delay:0.1s">Built for the job site, not the office</h2>
+          <p class="why__desc reveal" style="transition-delay:0.2s">Generic invoicing software wasn't designed for service professionals. CaptureNInvoice is purpose-built for people who work with their hands and need to get paid for it.</p>
 
-            function formatCount(count) {
-                return count >= 100 ? '100+' : String(count);
-            }
+          <div class="why__benefits">
+            <div class="why-benefit reveal" style="transition-delay:0.15s">
+              <div class="why-benefit__check">✓</div>
+              <div class="why-benefit__text">
+                <strong>Proof of work on every invoice</strong>
+                Photos and documentation attached automatically — clients see exactly what was done.
+              </div>
+            </div>
+            <div class="why-benefit reveal" style="transition-delay:0.2s">
+              <div class="why-benefit__check">✓</div>
+              <div class="why-benefit__text">
+                <strong>Fewer billing disputes</strong>
+                When clients can see the work, they pay without argument. 94% reduction in chargebacks.
+              </div>
+            </div>
+            <div class="why-benefit reveal" style="transition-delay:0.25s">
+              <div class="why-benefit__check">✓</div>
+              <div class="why-benefit__text">
+                <strong>Professional appearance</strong>
+                Send polished invoices that make your business look established and trustworthy.
+              </div>
+            </div>
+            <div class="why-benefit reveal" style="transition-delay:0.3s">
+              <div class="why-benefit__check">✓</div>
+              <div class="why-benefit__text">
+                <strong>Revenue visibility</strong>
+                Track what's paid, what's outstanding, and how your business is growing — at a glance.
+              </div>
+            </div>
+          </div>
+        </div>
 
-            function updateCounterDisplay() {
-                var display = formatCount(currentCount);
-                // counter display removed
-            }
+        <!-- Dashboard mockup -->
+        <div class="why__right reveal" style="transition-delay:0.2s">
+          <div class="dash-mock">
+            <div class="dash-mock__header">
+              <div class="dash-mock__logo" style="display:flex;align-items:center;gap:5px">
+                <svg width="16" height="16" viewBox="0 0 50 50" fill="none"><defs><linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FF6B35"/><stop offset="100%" style="stop-color:#FFD23F"/></linearGradient></defs><rect x="2" y="2" width="30" height="30" rx="7" fill="url(#dashGrad)"/><rect x="18" y="18" width="30" height="30" rx="7" fill="#004E89" opacity="0.95"/></svg>
+                CaptureNInvoice
+              </div>
+              <div class="dash-mock__tab active">Dashboard</div>
+              <div class="dash-mock__tab">Invoices</div>
+              <div class="dash-mock__tab">Clients</div>
+            </div>
+            <div class="dash-mock__body">
+              <div class="dash-kpis">
+                <div class="dash-kpi">
+                  <div class="dash-kpi__label">This Month</div>
+                  <div class="dash-kpi__val green">$4,280</div>
+                  <div class="dash-kpi__trend">↑ 18% vs last month</div>
+                </div>
+                <div class="dash-kpi">
+                  <div class="dash-kpi__label">Outstanding</div>
+                  <div class="dash-kpi__val orange">$640</div>
+                  <div class="dash-kpi__trend" style="color:var(--text-3)">3 invoices</div>
+                </div>
+                <div class="dash-kpi">
+                  <div class="dash-kpi__label">Paid Today</div>
+                  <div class="dash-kpi__val">$380</div>
+                  <div class="dash-kpi__trend">2 payments</div>
+                </div>
+              </div>
 
-            // Fetch live count from Google Sheets on page load
-            function fetchLiveCount() {
-                fetch(WEBHOOK_URL + '?action=getCount')
-                    .then(function(res) { return res.json(); })
-                    .then(function(data) {
-                        if (data && typeof data.count === 'number') {
-                            currentCount = data.count + BASE_COUNT;
-                        }
-                        updateCounterDisplay();
-                    })
-                    .catch(function() {
-                        // If unreachable, keep default
-                        updateCounterDisplay();
-                    });
-            }
+              <div class="dash-chart">
+                <div class="dash-chart__title">Revenue This Month</div>
+                <div class="dash-bars">
+                  <div class="dash-bar" style="height:30%"></div>
+                  <div class="dash-bar" style="height:50%"></div>
+                  <div class="dash-bar" style="height:40%"></div>
+                  <div class="dash-bar" style="height:65%"></div>
+                  <div class="dash-bar" style="height:45%"></div>
+                  <div class="dash-bar" style="height:80%"></div>
+                  <div class="dash-bar active" style="height:75%"></div>
+                </div>
+              </div>
 
-            updateCounterDisplay();
-            fetchLiveCount();
+              <div class="dash-invoices">
+                <div class="dash-invoice">
+                  <div class="dash-invoice__left">
+                    <div class="dash-invoice__avatar" style="background:#1a3a1a;color:#22C55E">MJ</div>
+                    <div>
+                      <div class="dash-invoice__name">Marcus Johnson</div>
+                      <div class="dash-invoice__date">Lawn care · Mar 14</div>
+                    </div>
+                  </div>
+                  <div class="dash-invoice__right">
+                    <div class="dash-invoice__amount">$190</div>
+                    <div class="dash-invoice__status paid">Paid</div>
+                  </div>
+                </div>
+                <div class="dash-invoice">
+                  <div class="dash-invoice__left">
+                    <div class="dash-invoice__avatar" style="background:#2a1a30;color:#a78bfa">SR</div>
+                    <div>
+                      <div class="dash-invoice__name">Sarah Rivera</div>
+                      <div class="dash-invoice__date">House cleaning · Mar 13</div>
+                    </div>
+                  </div>
+                  <div class="dash-invoice__right">
+                    <div class="dash-invoice__amount">$220</div>
+                    <div class="dash-invoice__status paid">Paid</div>
+                  </div>
+                </div>
+                <div class="dash-invoice">
+                  <div class="dash-invoice__left">
+                    <div class="dash-invoice__avatar" style="background:#2a1a10;color:#FFAD3B">DK</div>
+                    <div>
+                      <div class="dash-invoice__name">David Kim</div>
+                      <div class="dash-invoice__date">Paint &amp; touch-up · Mar 15</div>
+                    </div>
+                  </div>
+                  <div class="dash-invoice__right">
+                    <div class="dash-invoice__amount">$340</div>
+                    <div class="dash-invoice__status sent">Sent</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            // ========== SMOOTH SCROLL ==========
-            document.querySelector('.hero-cta').addEventListener('click', function(e) {
-                e.preventDefault();
-                var target = document.getElementById('signupForm');
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
+  <!-- ────────────────────── FEATURES ───────────────────────────── -->
+  <section class="features" id="features">
+    <div class="container">
+      <div class="features__head">
+        <div class="section-label reveal">Features</div>
+        <h2 class="section-title reveal" style="transition-delay:0.1s">Everything you need to run your business</h2>
+        <p class="section-sub reveal" style="transition-delay:0.2s">No bloated tools. No confusing dashboards. Just the features service professionals actually use every day.</p>
+      </div>
 
-            // ========== FORM HANDLING ==========
-            const form = document.getElementById('earlyAccessForm');
-            const formWrapper = document.getElementById('formWrapper');
-            const successMessage = document.getElementById('successMessage');
+      <div class="features__grid">
+        <div class="feat-card reveal">
+          <div class="feat-card__icon">📸</div>
+          <h3 class="feat-card__title">Proof-of-Work Invoicing</h3>
+          <p class="feat-card__desc">Attach before/after photos and job documentation directly to invoices. Let your work speak for itself and eliminate payment disputes.</p>
+        </div>
+        <div class="feat-card reveal" style="transition-delay:0.1s">
+          <div class="feat-card__icon">👥</div>
+          <h3 class="feat-card__title">Client Management</h3>
+          <p class="feat-card__desc">Keep a clean record of every client, job history, and payment. Send follow-ups and build lasting relationships without the admin headache.</p>
+        </div>
+        <div class="feat-card reveal" style="transition-delay:0.2s">
+          <div class="feat-card__icon">💳</div>
+          <h3 class="feat-card__title">Online Payments</h3>
+          <p class="feat-card__desc">Accept cards, bank transfers, and digital wallets. Clients pay directly from their invoice link — no account needed, no friction.</p>
+        </div>
+        <div class="feat-card reveal" style="transition-delay:0.15s">
+          <div class="feat-card__icon">📊</div>
+          <h3 class="feat-card__title">Invoice Tracking</h3>
+          <p class="feat-card__desc">Know exactly when invoices are sent, viewed, and paid. Get notified the moment money moves and never chase a payment in the dark again.</p>
+        </div>
+        <div class="feat-card reveal" style="transition-delay:0.25s">
+          <div class="feat-card__icon">📈</div>
+          <h3 class="feat-card__title">Revenue Dashboard</h3>
+          <p class="feat-card__desc">See your monthly earnings, outstanding invoices, and growth trends in one clean view. Know where your business stands, always.</p>
+        </div>
+        <div class="feat-card reveal" style="transition-delay:0.35s">
+          <div class="feat-card__icon">📱</div>
+          <h3 class="feat-card__title">Mobile-First Design</h3>
+          <p class="feat-card__desc">Document jobs and send invoices from your phone while still on-site. Built for the person who works in the field, not behind a desk.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
+  <!-- ────────────────────── WHO IT'S FOR ───────────────────────── -->
+  <section class="who">
+    <div class="container">
+      <div class="who__head">
+        <div class="section-label reveal">Who It's For</div>
+        <h2 class="section-title reveal" style="transition-delay:0.1s">Made for people who work with their hands</h2>
+        <p class="section-sub reveal" style="transition-delay:0.2s">CaptureNInvoice is purpose-built for job-based service businesses where proof of work matters.</p>
+      </div>
 
-                document.querySelectorAll('.error-msg').forEach(function(el) {
-                    el.style.display = 'none';
-                });
+      <div class="who__grid">
+        <div class="who-card reveal">
+          <div class="who-card__icon">🧹</div>
+          <div>
+            <div class="who-card__name">Cleaners</div>
+            <div class="who-card__desc">Show before/after photos and charge confidently for deep cleans</div>
+          </div>
+        </div>
+        <div class="who-card reveal" style="transition-delay:0.08s">
+          <div class="who-card__icon">🌿</div>
+          <div>
+            <div class="who-card__name">Landscapers</div>
+            <div class="who-card__desc">Document seasonal work, mulching, and full yard transformations</div>
+          </div>
+        </div>
+        <div class="who-card reveal" style="transition-delay:0.16s">
+          <div class="who-card__icon">🎨</div>
+          <div>
+            <div class="who-card__name">Painters</div>
+            <div class="who-card__desc">Attach prep photos and finished shots — prove the full scope of work</div>
+          </div>
+        </div>
+        <div class="who-card reveal" style="transition-delay:0.08s">
+          <div class="who-card__icon">🔧</div>
+          <div>
+            <div class="who-card__name">Handymen</div>
+            <div class="who-card__desc">Log parts used, hours worked, and photos on every repair job</div>
+          </div>
+        </div>
+        <div class="who-card reveal" style="transition-delay:0.16s">
+          <div class="who-card__icon">🏠</div>
+          <div>
+            <div class="who-card__name">Maintenance Pros</div>
+            <div class="who-card__desc">Keep detailed records for property managers and recurring clients</div>
+          </div>
+        </div>
+        <div class="who-card reveal" style="transition-delay:0.24s">
+          <div class="who-card__icon">🏗️</div>
+          <div>
+            <div class="who-card__name">Field Service Businesses</div>
+            <div class="who-card__desc">Any job-based service business that needs to document and invoice work</div>
+          </div>
+        </div>
+      </div>
 
-                const email = document.getElementById('email').value.trim();
-                const businessType = document.getElementById('businessType').value;
-                const name = document.getElementById('name').value.trim();
+      <div class="who__cta reveal">
+        <p class="who__cta-text">If you do work on-site and invoice clients, CaptureNInvoice is built for you.</p>
+        <a href="https://app.captureninvoice.com/register" class="btn btn--primary">Get Started Free →</a>
+      </div>
+    </div>
+  </section>
 
-                let hasError = false;
+  <!-- ────────────────────── TESTIMONIALS ───────────────────────── -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="testimonials__head">
+        <div class="section-label reveal">Testimonials</div>
+        <h2 class="section-title reveal" style="transition-delay:0.1s">Trusted by service professionals</h2>
+        <p class="section-sub reveal" style="transition-delay:0.2s">Real feedback from cleaners, landscapers, and tradespeople who get paid faster with CaptureNInvoice.</p>
+      </div>
 
-                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!email || !emailPattern.test(email)) {
-                    document.getElementById('emailError').style.display = 'block';
-                    hasError = true;
-                }
+      <div class="testimonials__grid">
+        <div class="testi-card reveal">
+          <div class="testi-card__stars">⭐⭐⭐⭐⭐</div>
+          <p class="testi-card__quote">"Before CaptureNInvoice, I had clients push back on bills all the time. Now I send photos with every invoice and no one argues. I got paid within an hour last week."</p>
+          <div class="testi-card__author">
+            <div class="testi-card__avatar" style="background:#1a3a1a;color:#22C55E">MJ</div>
+            <div>
+              <div class="testi-card__name">Marcus Johnson</div>
+              <div class="testi-card__role">Landscaper · Chicago, IL</div>
+            </div>
+          </div>
+        </div>
 
-                if (!businessType) {
-                    document.getElementById('businessError').style.display = 'block';
-                    hasError = true;
-                }
+        <div class="testi-card reveal" style="transition-delay:0.15s">
+          <div class="testi-card__stars">⭐⭐⭐⭐⭐</div>
+          <p class="testi-card__quote">"I clean 4–5 houses a day and used to spend evenings doing invoices. Now I send them from my phone on the way home. Clients love seeing the photos. Payments are so much faster."</p>
+          <div class="testi-card__author">
+            <div class="testi-card__avatar" style="background:#2a1a30;color:#a78bfa">SR</div>
+            <div>
+              <div class="testi-card__name">Sarah Rivera</div>
+              <div class="testi-card__role">House Cleaner · Austin, TX</div>
+            </div>
+          </div>
+        </div>
 
-                if (hasError) return;
+        <div class="testi-card reveal" style="transition-delay:0.3s">
+          <div class="testi-card__stars">⭐⭐⭐⭐⭐</div>
+          <p class="testi-card__quote">"The revenue dashboard changed how I think about my business. I can see what I'm earning in real time. I raised my rates because I finally knew my numbers."</p>
+          <div class="testi-card__author">
+            <div class="testi-card__avatar" style="background:#2a1a10;color:#FFAD3B">DK</div>
+            <div>
+              <div class="testi-card__name">David Kim</div>
+              <div class="testi-card__role">Painter · Atlanta, GA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-                // POST to Google Sheets webhook
-                fetch(WEBHOOK_URL, {
-                    method: 'POST',
-                    body: JSON.stringify({
-                        email: email,
-                        business: businessType,
-                        name: name,
-                        timestamp: new Date().toISOString()
-                    })
-                });
+  <!-- ────────────────────── PRICING ───────────────────────────── -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="pricing__head">
+        <div class="section-label reveal">Pricing</div>
+        <h2 class="section-title reveal" style="transition-delay:0.1s">Simple, transparent pricing</h2>
+        <p class="section-sub reveal" style="transition-delay:0.2s">No hidden fees. No surprises. Pick a plan and start getting paid faster today.</p>
+      </div>
 
-                // Increment counter locally for instant feedback
-                currentCount++;
-                updateCounterDisplay();
+      <div class="pricing__grid">
+        <div class="plan-card reveal">
+          <div class="plan-card__name">Starter</div>
+          <div class="plan-card__price">Free</div>
+          <div class="plan-card__period">Forever — no credit card required</div>
+          <div class="plan-card__desc">Everything you need to get started documenting work and sending invoices.</div>
+          <div class="plan-card__features">
+            <div class="plan-feat">Photo proof-of-work</div>
+            <div class="plan-feat">Online payment links</div>
+            <div class="plan-feat">Client management</div>
+            <div class="plan-feat">Basic revenue dashboard</div>
+          </div>
+          <a href="https://app.captureninvoice.com/register" class="btn btn--ghost" style="width:100%;justify-content:center">Get Started Free</a>
+        </div>
 
-                // Show success, hide form
-                formWrapper.style.display = 'none';
-                successMessage.style.display = 'block';
-            });
-        })();
-    </script>
+        <div class="plan-card plan-card--featured reveal" style="transition-delay:0.15s">
+          <div class="plan-card__popular">Most Popular</div>
+          <div class="plan-card__name">Professional</div>
+          <div class="plan-card__price" style="color:var(--orange)">Coming Soon</div>
+          <div class="plan-card__period">Early access pricing available</div>
+          <div class="plan-card__desc">For growing service businesses that need unlimited invoicing, deeper tracking, and priority support.</div>
+          <div class="plan-card__features">
+            <div class="plan-feat">Unlimited invoices</div>
+            <div class="plan-feat">Advanced proof-of-work gallery</div>
+            <div class="plan-feat">Priority payment processing</div>
+            <div class="plan-feat">Revenue reports &amp; exports</div>
+            <div class="plan-feat">Recurring invoices</div>
+            <div class="plan-feat">Priority support</div>
+          </div>
+          <a href="https://app.captureninvoice.com/register" class="btn btn--primary" style="width:100%;justify-content:center">Join Early Access →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────── FAQ ────────────────────────────────── -->
+  <section class="faq">
+    <div class="container">
+      <div class="faq__head">
+        <div class="section-label reveal">FAQ</div>
+        <h2 class="section-title reveal" style="transition-delay:0.1s">Common questions</h2>
+      </div>
+
+      <div class="faq__list">
+        <div class="faq-item reveal">
+          <button class="faq-item__q">
+            Do my clients need an account to pay invoices?
+            <div class="faq-item__arrow">▼</div>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">No. Your clients receive a payment link and can pay directly — no account, no sign-up, no friction. They simply open the link, see your work photos, and pay.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="transition-delay:0.05s">
+          <button class="faq-item__q">
+            Can I attach proof-of-work photos to invoices?
+            <div class="faq-item__arrow">▼</div>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">Yes — that's what makes CaptureNInvoice different. You can attach before/after photos, work logs, and job documentation directly to each invoice. Clients see your proof when they open the payment link.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="transition-delay:0.1s">
+          <button class="faq-item__q">
+            Is this built for small service businesses?
+            <div class="faq-item__arrow">▼</div>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">100%. CaptureNInvoice is designed specifically for solo operators and small teams in the trades — cleaners, landscapers, painters, handymen, and similar businesses. We don't have bloated features you'll never use.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="transition-delay:0.15s">
+          <button class="faq-item__q">
+            Can I track my revenue?
+            <div class="faq-item__arrow">▼</div>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">Yes. The revenue dashboard shows your earnings by day, week, and month — paid invoices, outstanding amounts, and your growth over time. Know your numbers without doing manual spreadsheet work.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="transition-delay:0.2s">
+          <button class="faq-item__q">
+            Does it support online payments?
+            <div class="faq-item__arrow">▼</div>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">Yes. Clients can pay via credit card, debit card, and bank transfer directly from their invoice. No extra apps needed. Funds are transferred to your account automatically.</div>
+          </div>
+        </div>
+
+        <div class="faq-item reveal" style="transition-delay:0.25s">
+          <button class="faq-item__q">
+            How is CaptureNInvoice different from regular invoicing software?
+            <div class="faq-item__arrow">▼</div>
+          </button>
+          <div class="faq-item__a">
+            <div class="faq-item__a-inner">Most invoicing tools are built for office workers and accountants. CaptureNInvoice is built for the field — it puts photo documentation at the center of every invoice, which eliminates disputes and gets you paid faster by people who can see exactly what was done.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────── FINAL CTA ──────────────────────────── -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="final-cta__inner">
+        <div class="pill pill--orange reveal" style="margin:0 auto 20px">
+          <svg width="8" height="8" viewBox="0 0 8 8" fill="currentColor"><circle cx="4" cy="4" r="4"/></svg>
+          Get started today
+        </div>
+        <h2 class="final-cta__title reveal" style="transition-delay:0.1s">
+          Start sending<br>
+          <span>proof-of-work invoices</span><br>
+          today.
+        </h2>
+        <p class="final-cta__sub reveal" style="transition-delay:0.2s">Document your work, invoice clients professionally, and get paid faster — all in one place built for the trades.</p>
+        <div class="final-cta__actions reveal" style="transition-delay:0.3s">
+          <a href="https://app.captureninvoice.com/register" class="btn btn--primary">
+            Create your account
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="https://app.captureninvoice.com/sign-in" class="btn btn--ghost">Sign In</a>
+        </div>
+        <p class="final-cta__note reveal" style="transition-delay:0.4s">Free to start. No credit card required. Takes 2 minutes to set up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ────────────────────── FOOTER ─────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <svg width="28" height="28" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
+              <defs>
+                <linearGradient id="footGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#FF6B35;stop-opacity:1"/>
+                  <stop offset="100%" style="stop-color:#FFD23F;stop-opacity:1"/>
+                </linearGradient>
+              </defs>
+              <rect x="2" y="2" width="30" height="30" rx="7" fill="url(#footGrad)"/>
+              <rect x="18" y="18" width="30" height="30" rx="7" fill="#004E89" opacity="0.95"/>
+            </svg>
+            CaptureNInvoice
+          </div>
+          <p class="footer__tagline">Proof-of-work invoicing for service businesses. Document the work. Send the invoice. Get paid faster.</p>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Product</div>
+          <div class="footer__links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#">Changelog</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">App</div>
+          <div class="footer__links">
+            <a href="https://app.captureninvoice.com">Open App</a>
+            <a href="https://app.captureninvoice.com/sign-in">Sign In</a>
+            <a href="https://app.captureninvoice.com/register">Create Account</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Company</div>
+          <div class="footer__links">
+            <a href="#">About</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+            <a href="#">Careers</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer__col-title">Legal</div>
+          <div class="footer__links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Security</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__copy">© 2026 CaptureNInvoice. All rights reserved.</div>
+        <div class="footer__legal">
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ─── NAV scroll behavior ──────────────────────────────────────
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // ─── Mobile menu ──────────────────────────────────────────────
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // ─── Reveal on scroll ─────────────────────────────────────────
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ─── FAQ accordion ────────────────────────────────────────────
+    document.querySelectorAll('.faq-item__q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        // Toggle clicked
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // ─── Smooth scroll for anchor links ──────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        if (!id) return;
+        const target = document.getElementById(id);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
