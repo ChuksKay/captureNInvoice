@@ -139,7 +139,7 @@
 
     /* ─── RESET ──────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
 
     body {
       font-family: var(--font-body);
@@ -247,12 +247,12 @@
     }
     .nav__links a {
       font-size: 14px; font-weight: 500;
-      color: var(--text-2);
+      color: var(--text-2); cursor: pointer;
       padding: 6px 12px;
       border-radius: 8px;
       transition: color 0.15s, background 0.15s;
     }
-    .nav__links a:hover { color: var(--text); background: rgba(0,0,0,0.05); }
+    .nav__links a:hover { color: var(--orange); background: var(--orange-dim); }
     .nav__actions { margin-left: auto; display: flex; align-items: center; gap: 10px; }
     .nav__hamburger {
       display: none; flex-direction: column; gap: 4px;
@@ -1481,7 +1481,7 @@
     <div class="container">
       <div class="who__head">
         <div class="section-label reveal">Who It's For</div>
-        <h2 class="section-title reveal" style="transition-delay:0.1s">Made for people who work with their hands</h2>
+        <h2 class="section-title reveal" style="transition-delay:0.1s">The invoicing tool built for proof-of-work service businesses</h2>
         <p class="section-sub reveal" style="transition-delay:0.2s">CaptureNInvoice is purpose-built for job-based service businesses where proof of work matters.</p>
       </div>
 
@@ -1525,7 +1525,7 @@
           <div class="who-card__icon">🏗️</div>
           <div>
             <div class="who-card__name">Field Service Businesses</div>
-            <div class="who-card__desc">Any job-based service business that needs to document and invoice work</div>
+            <div class="who-card__desc">Any business that shows up on-site, completes the work, and needs documentation before invoicing</div>
           </div>
         </div>
       </div>
