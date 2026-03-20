@@ -39,8 +39,8 @@
     "description": "Proof-of-work invoicing for service businesses. Document completed work, attach before/after photos, send professional invoices, and get paid faster.",
     "offers": {
       "@type": "Offer",
-      "name": "Starter",
-      "price": "0",
+      "name": "Basic",
+      "price": "9",
       "priceCurrency": "USD"
     }
   }
@@ -117,7 +117,7 @@
   <!-- ────────────────────── NAV ────────────────────────────────── -->
   <nav class="nav" id="mainNav">
     <div class="nav__inner">
-      <a href="#" class="nav__logo">
+      <a href="/" class="nav__logo">
         <svg width="32" height="32" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0">
           <defs>
             <linearGradient id="navGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -131,11 +131,11 @@
         CaptureNInvoice
       </a>
       <div class="nav__links">
-        <a href="#product">Product</a>
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#about">About</a>
+        <a href="product.html">Product</a>
+        <a href="features.html">Features</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="about.html">About</a>
       </div>
       <div class="nav__actions">
         <a href="https://app.captureninvoice.com/login" class="btn btn--ghost btn--sm">Sign In</a>
@@ -149,11 +149,11 @@
 
   <!-- Mobile nav -->
   <div class="nav__mobile" id="mobileMenu">
-    <a href="#product">Product</a>
-    <a href="#features">Features</a>
-    <a href="#how-it-works">How It Works</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#about">About</a>
+    <a href="product.html">Product</a>
+    <a href="features.html">Features</a>
+    <a href="how-it-works.html">How It Works</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="about.html">About</a>
     <div class="nav__mobile-actions">
       <a href="https://app.captureninvoice.com/login" class="btn btn--ghost">Sign In</a>
       <a href="https://app.captureninvoice.com/register" class="btn btn--primary">Get Started →</a>
@@ -802,9 +802,9 @@
         <div>
           <div class="footer__col-title">Product</div>
           <div class="footer__links">
-            <a href="#features">Features</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="#pricing">Pricing</a>
+            <a href="features.html">Features</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="pricing.html">Pricing</a>
             <a href="#">Changelog</a>
           </div>
         </div>
@@ -821,7 +821,7 @@
         <div>
           <div class="footer__col-title">Company</div>
           <div class="footer__links">
-            <a href="#">About</a>
+            <a href="about.html">About</a>
             <a href="#">Blog</a>
             <a href="#">Contact</a>
             <a href="#">Careers</a>
@@ -849,23 +849,8 @@
     </div>
   </footer>
 
+  <script src="js/nav.js"></script>
   <script>
-    // ─── NAV scroll behavior ──────────────────────────────────────
-    const nav = document.getElementById('mainNav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
-    }, { passive: true });
-
-    // ─── Mobile menu ──────────────────────────────────────────────
-    const hamburger = document.getElementById('hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
-    hamburger.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    });
-
     // ─── Reveal on scroll ─────────────────────────────────────────
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -875,7 +860,6 @@
         }
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
     // ─── FAQ accordion ────────────────────────────────────────────
@@ -883,23 +867,8 @@
       btn.addEventListener('click', () => {
         const item = btn.closest('.faq-item');
         const isOpen = item.classList.contains('open');
-        // Close all
         document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        // Toggle clicked
         if (!isOpen) item.classList.add('open');
-      });
-    });
-
-    // ─── Smooth scroll for anchor links ──────────────────────────
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const id = a.getAttribute('href').slice(1);
-        if (!id) return;
-        const target = document.getElementById(id);
-        if (target) {
-          e.preventDefault();
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
       });
     });
   </script>
