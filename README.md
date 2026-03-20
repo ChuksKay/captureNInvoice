@@ -1,62 +1,53 @@
-# CaptureNInvoice - Validation Landing Page
+# CaptureNInvoice — Marketing Website
 
-A validation landing page for CaptureNInvoice, an invoicing tool that lets service professionals attach before/after photos to invoices.
+Public marketing website for [CaptureNInvoice](https://captureninvoice.com) — proof-of-work invoicing for service businesses.
 
-## How to Run Locally
+The live app is at [app.captureninvoice.com](https://app.captureninvoice.com).
 
-### Option 1: Using server.py (Recommended)
+## Run Locally
 
 ```bash
 cd "/Users/calebchukwu/Desktop/My Apps Projects/captureninvoice"
 python server.py
 ```
 
-### Option 2: Python one-liner
+Or:
 
 ```bash
 python -m http.server 8000
 ```
 
-Then open your browser to: **http://localhost:8000**
-
-To stop the server, press `Ctrl+C`.
-
-## Viewing Signups
-
-During validation, signups are stored in browser localStorage.
-
-Open the browser console (F12 or Cmd+Shift+J) and run:
-
-```javascript
-// View all signups
-JSON.parse(localStorage.getItem('captureninvoice_signups'))
-
-// View signup count
-localStorage.getItem('captureninvoice_counter')
-```
+Open: **http://localhost:8000** — stop with `Ctrl+C`.
 
 ## Project Structure
 
 ```
 captureninvoice/
-├── index.html       # Main landing page (HTML + CSS + JS)
-├── server.py        # Local development server
+├── index.html       # Marketing page (HTML + CSS + JS)
+├── robots.txt       # Crawler directives
+├── sitemap.xml      # Sitemap for search engines
+├── server.py        # Local dev server
 ├── README.md        # This file
-├── css/             # (reserved for separated styles)
-├── js/              # (reserved for separated scripts)
-└── assets/images/   # (reserved for images/logos)
+├── css/             # Reserved for separated styles
+├── js/              # Reserved for separated scripts
+└── assets/images/   # Reserved for images/logos
 ```
+
+## SEO
+
+Structured data in `index.html` `<head>`:
+- **Organization** — name, url, description
+- **SoftwareApplication** — app category, pricing, description
+- **FAQPage** — all 6 FAQ questions mapped to schema.org
+
+Crawl infrastructure:
+- `robots.txt` — allows all crawlers, points to sitemap
+- `sitemap.xml` — single entry for `https://captureninvoice.com/`
 
 ## Next Steps
 
-1. **Connect email capture** - Replace localStorage with Mailchimp, ConvertKit, or Google Sheets
-2. **Add analytics** - Google Analytics or Plausible for visitor tracking
-3. **Deploy** - Push to Netlify, Vercel, or GitHub Pages for public access
-4. **Run ads** - Facebook/Instagram ads targeting service professionals
-5. **A/B test** - Try different headlines and CTAs to optimize conversion
-
-## Success Metrics
-
-- Target conversion rate: 10%+
-- Track which business types convert best (from the dropdown)
-- Goal: 100+ signups in the first week
+1. **Deploy** — push to Netlify, Vercel, or GitHub Pages and point `captureninvoice.com` to it
+2. **Submit sitemap** — add `https://captureninvoice.com/sitemap.xml` to Google Search Console
+3. **Add analytics** — Google Analytics or Plausible for visitor tracking
+4. **Add og:image** — create a social share image and add to Open Graph tags
+5. **Connect email capture** — replace localStorage with Mailchimp, ConvertKit, or a webhook
