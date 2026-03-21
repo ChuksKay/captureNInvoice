@@ -23,31 +23,55 @@ Open: **http://localhost:8000** — stop with `Ctrl+C`.
 
 ```
 captureninvoice/
-├── index.html       # Marketing page (HTML + CSS + JS)
-├── robots.txt       # Crawler directives
-├── sitemap.xml      # Sitemap for search engines
-├── server.py        # Local dev server
-├── README.md        # This file
-├── css/             # Reserved for separated styles
-├── js/              # Reserved for separated scripts
-└── assets/images/   # Reserved for images/logos
+├── index.html           # Homepage
+├── product.html         # Product page
+├── features.html        # Features page
+├── how-it-works.html    # How It Works page
+├── pricing.html         # Pricing page
+├── about.html           # About page
+├── privacy.html         # Privacy Policy
+├── terms.html           # Terms of Service
+├── security.html        # Security page
+├── css/
+│   └── styles.css       # Shared styles (all pages)
+├── js/
+│   └── nav.js           # Shared nav behaviour (scroll, hamburger, smooth scroll)
+├── robots.txt           # Crawler directives
+├── sitemap.xml          # Sitemap for search engines (all 6 marketing pages)
+├── server.py            # Local dev server
+└── assets/              # Images and static assets
 ```
+
+## Pages
+
+| Page | Path | Purpose |
+|---|---|---|
+| Homepage | `/` | Main marketing front door |
+| Product | `/product` | What CaptureNInvoice is |
+| Features | `/features` | Full feature breakdown |
+| How It Works | `/how-it-works` | 3-step workflow |
+| Pricing | `/pricing` | Basic ($9/mo) and Pro ($25/mo) plans |
+| About | `/about` | Mission and audience |
+| Privacy Policy | `/privacy` | Data collection and user rights |
+| Terms of Service | `/terms` | Usage terms and conditions |
+| Security | `/security` | Data protection and payment security |
 
 ## SEO
 
 Structured data in `index.html` `<head>`:
 - **Organization** — name, url, description
-- **SoftwareApplication** — app category, pricing, description
-- **FAQPage** — all 6 FAQ questions mapped to schema.org
+- **SoftwareApplication** — app category, pricing (Basic $9/mo), description
+- **FAQPage** — 6 FAQ questions mapped to schema.org
+
+Each subpage includes canonical tags and Open Graph meta tags (`og:title`, `og:description`, `og:type`, `og:url`).
 
 Crawl infrastructure:
 - `robots.txt` — allows all crawlers, points to sitemap
-- `sitemap.xml` — single entry for `https://captureninvoice.com/`
+- `sitemap.xml` — all 6 marketing pages with priority and changefreq
 
 ## Next Steps
 
-1. **Deploy** — push to Netlify, Vercel, or GitHub Pages and point `captureninvoice.com` to it
-2. **Submit sitemap** — add `https://captureninvoice.com/sitemap.xml` to Google Search Console
-3. **Add analytics** — Google Analytics or Plausible for visitor tracking
-4. **Add og:image** — create a social share image and add to Open Graph tags
-5. **Connect email capture** — replace localStorage with Mailchimp, ConvertKit, or a webhook
+1. **Submit sitemap** — add `https://captureninvoice.com/sitemap.xml` to Google Search Console
+2. **Add analytics** — Google Analytics or Plausible for visitor tracking
+3. **Add og:image** — create a social share image and add to Open Graph tags
+4. **Add favicon** — create and link a favicon for brand consistency
