@@ -67,11 +67,15 @@ Each subpage includes canonical tags and Open Graph meta tags (`og:title`, `og:d
 
 Crawl infrastructure:
 - `robots.txt` — allows all crawlers, points to sitemap
-- `sitemap.xml` — all 6 marketing pages with priority and changefreq
+- `sitemap.xml` — all 9 marketing pages with priority and changefreq
+
+## Analytics
+
+Google Analytics 4 (GA4) is installed on all 9 pages — Measurement ID: `G-6WRXJRYEW0`.
+The tag is placed immediately after the `<head>` element on every page per Google's requirements.
 
 ## Next Steps
 
 1. **Submit sitemap** — add `https://captureninvoice.com/sitemap.xml` to Google Search Console
-2. **Add analytics** — Google Analytics or Plausible for visitor tracking
-3. **Add og:image** — create a social share image and add to Open Graph tags
-4. **Add favicon** — create and link a favicon for brand consistency
+2. **Add og:image** — create a social share image and add to Open Graph tags
+3. **Add favicon** — create and link a favicon for brand consistency

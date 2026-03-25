@@ -77,12 +77,18 @@ Or: `python -m http.server 8000`
 - **Nav** (`nav.js`) — scroll behaviour, hamburger menu, smooth scroll. Included on every page.
 - **CSS** (`styles.css`) — all shared styles. Do not duplicate styles inline unless page-specific.
 
+## Analytics
+
+Google Analytics 4 is installed on all pages — Measurement ID: `G-6WRXJRYEW0`.
+The gtag snippet must be placed immediately after the opening `<head>` tag (not before `</head>`).
+
 ## When Adding a New Page
 
 1. Copy the structure of an existing page (e.g. `about.html`)
 2. Update `<title>`, `<meta>` description, canonical URL, and Open Graph tags in `<head>`
-3. Add the page to `sitemap.xml`
-4. Link to it from the footer (and nav if appropriate) on all other pages
+3. The GA tag is already in the template — do not add it again
+4. Add the page to `sitemap.xml`
+5. Link to it from the footer (and nav if appropriate) on all other pages
 
 ## SEO Notes
 
@@ -100,6 +106,5 @@ Or: `python -m http.server 8000`
 ## Next Steps (Pending)
 
 1. Submit sitemap to Google Search Console
-2. Add analytics (Google Analytics or Plausible)
-3. Add `og:image` social share image
-4. Add favicon
+2. Add `og:image` social share image
+3. Add favicon
