@@ -1134,7 +1134,7 @@ ul { list-style: none; }
 /* ─── DEMO VIDEO ─────────────────────────────────────────────── */
 .demo-video {
   padding: 80px 0;
-  background: var(--surface);
+  background: var(--bg-card);
 }
 
 .demo-video__head {
@@ -1154,7 +1154,6 @@ ul { list-style: none; }
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 16px;
 }
 
 @media (max-width: 768px) {
@@ -1166,7 +1165,4 @@ ul { list-style: none; }
     border-radius: 10px;
   }
 
-  .demo-video__wrap video {
-    border-radius: 10px;
-  }
 }
