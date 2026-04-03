@@ -1,74 +1,66 @@
 # SEO, Favicon & Analytics Design
 
-**Date:** 2026-04-02  
-**Scope:** All 9 pages (`index.html`, `product.html`, `features.html`, `how-it-works.html`, `pricing.html`, `about.html`, `privacy.html`, `terms.html`, `security.html`), `assets/`
+**Date:** 2026-04-02
+**Scope:** All 9 pages, `assets/`, `CLAUDE.md`
 
 ---
 
-## Overview
+## Changes from v1 *(clearly marked below)*
 
-Four tasks to complete the baseline marketing site setup:
-
-1. Document Google Search Console sitemap submission (manual user action)
-2. Generate and add OG social share image to all pages
-3. Create and add favicon to all pages
-4. Add Microsoft Clarity snippet (with placeholder ID) to all pages
+- **REMOVED:** robots.txt task — sitemap already referenced, no change needed
+- **REMOVED:** "add title + meta description per page" task — all 9 pages already have unique, correct titles and meta descriptions (verified by grep)
+- **CHANGED:** OG image generation — replaced vague "use Playwright" with Playwright MCP browser tool (already available in session, zero installation required)
+- **SIMPLIFIED:** Scope reduced from 14 files to 12 (removed robots.txt and title/meta work)
 
 ---
 
-## Task 1 — Google Search Console (Documentation Only)
+## Task 1 — OG Image
 
-No code changes. Add a note to `CLAUDE.md` with the steps for the user to follow:
+**Design (Style C — Clean White, 1200×630px):**
+- White background `#FFFFFF`
+- Gradient accent bar top: `linear-gradient(90deg, #FF6B35, #FFD23F)`, 6px tall
+- Logo SVG + "CaptureNInvoice" wordmark, top-left
+- Headline: "From job to payment — in one flow" — `#004E89`, weight 800, 48px
+- Subheadline: "Get paid faster." — `#FF6B35`, weight 600, 24px
+- Third line: "Built for service businesses" — `#6b7280`, 18px
+- URL bottom-right: `captureninvoice.com` — `#9ca3af`, 14px
 
-1. Go to https://search.google.com/search-console
-2. Add property → enter `https://captureninvoice.com`
-3. Verify ownership via DNS TXT record with domain registrar
-4. Once verified: Sitemaps → submit `https://captureninvoice.com/sitemap.xml`
+**Generation (no external dependencies):**
+1. Write `assets/og-image-source.html` — full standalone HTML document, `<body>` sized to exactly 1200×630px with `overflow:hidden`
+2. Use the **Playwright MCP browser tool** (`mcp__plugin_playwright`) — already available in-session, no npm/pip install needed — to navigate to the file and take a screenshot at 1200×630
+3. Save as `assets/og-image.jpg`
+4. Delete `assets/og-image-source.html` (build artifact, not needed in repo)
 
----
-
-## Task 2 — OG Image
-
-**Design (Style C — Clean White):**
-- 1200×630px
-- White background (`#FFFFFF`)
-- Gradient accent bar at top: `linear-gradient(90deg, #FF6B35, #FFD23F)`, 6px tall
-- Logo (two overlapping squares SVG) + "CaptureNInvoice" wordmark top-left
-- Headline: "From job to payment — in one flow" — color `#004E89`, font weight 800, ~48px
-- Subheadline: "Get paid faster." — color `#FF6B35`, font weight 600, ~24px
-- Third line: "Built for service businesses" — color `#6b7280`, ~18px
-- URL bottom-right: `captureninvoice.com` — color `#9ca3af`, small
-
-**Generation:**
-- Write `assets/og-image-source.html` — standalone HTML file at 1200×630px rendering the design
-- Use Playwright (`mcp__plugin_playwright`) to screenshot it at exactly 1200×630
-- Save output as `assets/og-image.jpg`
-- Delete `og-image-source.html` after generation (it's a build artifact)
-
-**Meta tags added to every page (inside `<head>`):**
+**Meta tags added to all 9 pages inside `<head>` after existing OG tags:**
 ```html
 <meta property="og:image" content="https://captureninvoice.com/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 ```
 
-Note: Each page already has `og:title`, `og:description`, `og:type`, and `og:url`. This adds only the image tags.
-
 ---
 
-## Task 3 — Favicon
+## Task 2 — Favicon
 
 **Files to create:**
-- `assets/favicon.svg` — SVG favicon, two overlapping squares matching the nav logo exactly
-- `assets/apple-touch-icon.png` — 180×180px PNG, generated via Playwright screenshot of the SVG
+- `assets/favicon.svg` — two overlapping squares, matches nav logo exactly
+- `assets/apple-touch-icon.png` — 180×180px, generated via Playwright MCP screenshot of the SVG at that size
 
-**SVG design** (matches existing nav logo):
-- Large square: top-left, 30×30, rx=7, orange-yellow gradient fill (`#FF6B35` → `#FFD23F`)
-- Small square: bottom-right overlapping, 30×30, rx=7, blue fill `#004E89`
-- Viewbox: `0 0 50 50`
-- White background circle or transparent (transparent preferred)
+**SVG spec** (matches existing inline nav logo):
+```svg
+<svg width="32" height="32" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="fg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="100%" style="stop-color:#FFD23F"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="30" height="30" rx="7" fill="url(#fg)"/>
+  <rect x="18" y="18" width="30" height="30" rx="7" fill="#004E89"/>
+</svg>
+```
 
-**Links added to every page (inside `<head>`, after existing meta tags):**
+**Links added to all 9 pages inside `<head>`, after existing meta/canonical tags:**
 ```html
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -76,12 +68,12 @@ Note: Each page already has `og:title`, `og:description`, `og:type`, and `og:url
 
 ---
 
-## Task 4 — Microsoft Clarity
+## Task 3 — Microsoft Clarity
 
-**Snippet added to every page**, immediately after the GA4 snippet (after `</script>` closing the GA block):
+**Snippet added to all 9 pages** immediately after the closing `</script>` of the GA4 block:
 
 ```html
-<!-- Microsoft Clarity — replace YOUR_CLARITY_ID with your project ID from clarity.microsoft.com -->
+<!-- Microsoft Clarity — replace YOUR_CLARITY_ID once you have a project at clarity.microsoft.com -->
 <script type="text/javascript">
   (function(c,l,a,r,i,t,y){
     c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -91,7 +83,33 @@ Note: Each page already has `og:title`, `og:description`, `og:type`, and `og:url
 </script>
 ```
 
-**To activate:** Create a project at https://clarity.microsoft.com, get the project ID, and replace `YOUR_CLARITY_ID` across all 9 files.
+**To activate:** Go to clarity.microsoft.com → create a project → copy the project ID → replace `YOUR_CLARITY_ID` across all 9 files (one grep-replace).
+
+---
+
+## Task 4 — CLAUDE.md Updates
+
+Add two notes:
+
+1. **Search Console:** Steps to submit sitemap (user must do manually):
+   - Go to search.google.com/search-console
+   - Add property → `https://captureninvoice.com`
+   - Verify ownership via DNS TXT record
+   - Sitemaps → submit `https://captureninvoice.com/sitemap.xml`
+
+2. **Clarity activation:** Note that `YOUR_CLARITY_ID` placeholder exists in all 9 pages and how to replace it.
+
+---
+
+## What Is Already Done (No Changes Needed)
+
+| Item | Status |
+|---|---|
+| Unique `<title>` on all 9 pages | ✅ Done |
+| Unique `<meta name="description">` on all 9 pages | ✅ Done |
+| Sitemap referenced in `robots.txt` | ✅ Done |
+| Canonical tags on all pages | ✅ Done |
+| OG title + description + type + url on all pages | ✅ Done |
 
 ---
 
@@ -117,5 +135,5 @@ Note: Each page already has `og:title`, `og:description`, `og:type`, and `og:url
 
 - `css/styles.css`
 - `js/nav.js`
+- `robots.txt` *(already correct)*
 - `sitemap.xml`
-- `robots.txt`
