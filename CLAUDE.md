@@ -119,10 +119,30 @@ A demo video section sits between the Stats section and the How It Works section
 - App URL: `https://app.captureninvoice.com` — use this consistently
 - Copy tone: simple, direct, proof-focused — avoid "before/after photos" language, use "proof of work" instead
 
+## Google Search Console
+
+To submit the sitemap (manual — requires your Google account):
+1. Go to https://search.google.com/search-console
+2. Add property → enter `https://captureninvoice.com`
+3. Verify ownership via DNS TXT record with your domain registrar
+4. Once verified: Sitemaps → submit `https://captureninvoice.com/sitemap.xml`
+
+## Microsoft Clarity
+
+All 9 pages have the Clarity snippet installed with a `YOUR_CLARITY_ID` placeholder.
+
+To activate:
+1. Go to https://clarity.microsoft.com
+2. Create a new project for CaptureNInvoice
+3. Copy your project ID (looks like `abc12345`)
+4. Run this from the project root:
+   ```bash
+   grep -rl 'YOUR_CLARITY_ID' . --include="*.html" | xargs sed -i '' 's/YOUR_CLARITY_ID/YOUR_ACTUAL_ID/g'
+   ```
+5. Commit and push
+
 ## Next Steps (Pending)
 
-1. Submit sitemap to Google Search Console
-2. Add `og:image` social share image
-3. Add favicon
-4. Migrate demo video to YouTube/Vimeo and replace `<video>` tag with embed
-5. Consider adding Microsoft Clarity for session recordings and heatmaps
+1. Submit sitemap to Google Search Console (see above)
+2. Activate Microsoft Clarity (see above — replace YOUR_CLARITY_ID)
+3. Migrate demo video to Vimeo and replace `<video>` tag with embed
