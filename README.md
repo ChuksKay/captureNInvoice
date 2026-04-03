@@ -14,7 +14,7 @@ python server.py
 Or:
 
 ```bash
-python -m http.server 8000
+python3 -m http.server 8000
 ```
 
 Open: **http://localhost:8000** — stop with `Ctrl+C`.
@@ -74,8 +74,18 @@ Crawl infrastructure:
 Google Analytics 4 (GA4) is installed on all 9 pages — Measurement ID: `G-6WRXJRYEW0`.
 The tag is placed immediately after the `<head>` element on every page per Google's requirements.
 
+## Demo Video
+
+A product demo video is embedded on the homepage between the Stats and How It Works sections.
+
+- File: `assets/demo.mp4` (H.264, served locally for now)
+- Poster: `assets/demo-poster.jpg`
+- Planned: migrate to YouTube/Vimeo for better performance
+
 ## Next Steps
 
 1. **Submit sitemap** — add `https://captureninvoice.com/sitemap.xml` to Google Search Console
 2. **Add og:image** — create a social share image and add to Open Graph tags
 3. **Add favicon** — create and link a favicon for brand consistency
+4. **Migrate video** — host on YouTube/Vimeo and replace `<video>` tag with embed
+5. **Session recording** — add Microsoft Clarity for heatmaps and session replays

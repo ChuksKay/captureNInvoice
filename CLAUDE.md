@@ -26,7 +26,11 @@ captureninvoice/
 ├── robots.txt           # Crawler directives
 ├── sitemap.xml          # Sitemap for search engines
 ├── server.py            # Local dev server
-└── assets/              # Images and static assets
+├── .gitignore           # Ignores .DS_Store and *.mov files
+└── assets/
+    ├── demo.mp4         # Homepage demo video (H.264, converted from .mov)
+    ├── demo-poster.jpg  # Poster frame shown before video plays
+    └── images/          # Static images
 ```
 
 ## Pages
@@ -52,7 +56,9 @@ python server.py
 # Stop: Ctrl+C
 ```
 
-Or: `python -m http.server 8000`
+Or: `python3 -m http.server 8000`
+
+Note: the command is `python3`, not `python`, on this machine.
 
 ## Design System
 
@@ -97,14 +103,26 @@ The gtag snippet must be placed immediately after the opening `<head>` tag (not 
 - `robots.txt` allows all crawlers and points to sitemap
 - `sitemap.xml` covers all marketing pages
 
+## Homepage Video
+
+A demo video section sits between the Stats section and the How It Works section on `index.html`.
+
+- Video file: `assets/demo.mp4` (H.264, converted from original .mov using `avconvert`)
+- Poster image: `assets/demo-poster.jpg` (extracted first frame)
+- Do NOT commit `.mov` files — they are in `.gitignore`
+- When ready, migrate video to YouTube or Vimeo and replace the `<video>` tag with an `<iframe>` embed for better performance
+
 ## Content Rules
 
 - Do not add fake user counts, made-up metrics, or false social proof
 - Pricing: Basic $9/mo, Pro $25/mo — do not change without confirmation
 - App URL: `https://app.captureninvoice.com` — use this consistently
+- Copy tone: simple, direct, proof-focused — avoid "before/after photos" language, use "proof of work" instead
 
 ## Next Steps (Pending)
 
 1. Submit sitemap to Google Search Console
 2. Add `og:image` social share image
 3. Add favicon
+4. Migrate demo video to YouTube/Vimeo and replace `<video>` tag with embed
+5. Consider adding Microsoft Clarity for session recordings and heatmaps
