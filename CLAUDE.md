@@ -143,6 +143,4 @@ To activate:
 
 ## Next Steps (Pending)
 
-1. Submit sitemap to Google Search Console (see above)
-2. Activate Microsoft Clarity (see above — replace YOUR_CLARITY_ID)
-3. Migrate demo video to Vimeo and replace `<video>` tag with embed
+1. Migrate demo video to Vimeo and replace `<video>` tag with embed
