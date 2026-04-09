@@ -115,7 +115,7 @@ A demo video section sits between the Stats section and the How It Works section
 ## Content Rules
 
 - Do not add fake user counts, made-up metrics, or false social proof
-- Pricing: Basic $9/mo, Pro $25/mo — do not change without confirmation
+- Pricing: Free ($0) and Basic ($19/mo) — do not change without confirmation
 - App URL: `https://app.captureninvoice.com` — use this consistently
 - Copy tone: simple, direct, proof-focused — avoid "before/after photos" language, use "proof of work" instead
 
